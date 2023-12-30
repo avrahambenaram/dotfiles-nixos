@@ -181,10 +181,8 @@ in
             "cpu"
             "pulseaudio"
             "battery"
-            #"custom/PBPbattery"
             "backlight#icon"
             "backlight#value"
-            "custom/weather"
             "custom/power"
         ];
 
@@ -215,11 +213,6 @@ in
             # format-good = ""; # An empty format will hide the module
             # format-full = "";
             format-icons = ["" "" "" "" ""];
-        };
-
-        "custom/PBPbattery" = {
-            exec = "~/.config/waybar/scripts/PBPbattery.sh";
-            format = "{}";
         };
 
         clock = {
@@ -297,14 +290,6 @@ in
             on-click = "pavucontrol";
             on-scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +2%";
             on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -2%";
-        };
-
-        # to use the weather module replace <your_location> with your city or town
-        # note: do not use spaces: new york would be newyork
-        "custom/weather" = {
-            exec = "~/.config/waybar/scripts/weather.sh MogiDasCruzes"; 
-            return-type = "json";
-            interval = 600;
         };
 
         tray = {
