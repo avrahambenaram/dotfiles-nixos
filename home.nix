@@ -1,6 +1,7 @@
 { inputs, config, pkgs, ... }:
 
 let
+  bg-selector = import ./scripts/hypr/bg-selector.nix { inherit pkgs; };
   power-menu = import ./scripts/power-menu.nix { inherit pkgs; };
 in
 {
@@ -37,10 +38,11 @@ in
     pkgs.slurp
 
     pkgs.nwg-look
-	pkgs.swaylock-effects
+    pkgs.swaylock-effects
 
-	# Scripts
-	power-menu
+    # Scripts
+    power-menu
+    bg-selector
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -76,9 +78,6 @@ in
 
   # Let Home Manager install and manage itself.
 
-  home.sessionPath = [
-    "/home/avraham/Programs"
-  ];
   home.shellAliases = {
     ls="ls --color=tty";
 	ll="ls -Al";
