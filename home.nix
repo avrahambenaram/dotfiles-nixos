@@ -2,6 +2,9 @@
 
 let
   bg-selector = import ./scripts/hypr/bg-selector.nix { inherit pkgs; };
+  hypr-screenshot = import ./scripts/hypr/hypr-screenshot.nix { inherit pkgs; };
+  theme-selector = import ./scripts/hypr/theme-selector.nix { inherit pkgs; };
+  theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit pkgs; };
   power-menu = import ./scripts/power-menu.nix { inherit pkgs; };
 in
 {
@@ -41,8 +44,11 @@ in
     pkgs.swaylock-effects
 
     # Scripts
-    power-menu
     bg-selector
+    hypr-screenshot
+    theme-selector
+    theme-switcher
+    power-menu
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -80,46 +86,46 @@ in
 
   home.shellAliases = {
     ls="ls --color=tty";
-	ll="ls -Al";
-	l="ls -l";
-	weather="curl http://wttr.in";
-	mkdir="mkdir -pv";
-	nf="neofetch";
-	vim="nvim";
-	lyricstifyS="lyricstify start --highlight-markup \"^m\"";
+    ll="ls -Al";
+    l="ls -l";
+    weather="curl http://wttr.in";
+    mkdir="mkdir -pv";
+    nf="neofetch";
+    vim="nvim";
+    lyricstifyS="lyricstify start --highlight-markup \"^m\"";
 
-	# Waydroid
+    # Waydroid
     waydroidStart="sudo modprobe binder_linux && sudo waydroid container start && waydroid session start";
-	waydroidStop="waydroid session stop && sudo waydroid container stop";
-	waydroidRotation="sudo waydroid shell wm set-user-rotation lock";
-	waydroidWidth="waydroid prop set persist.waydroid.width";
-	waydroidHeight="waydroid prop set persist.waydroid.height";
+    waydroidStop="waydroid session stop && sudo waydroid container stop";
+    waydroidRotation="sudo waydroid shell wm set-user-rotation lock";
+    waydroidWidth="waydroid prop set persist.waydroid.width";
+    waydroidHeight="waydroid prop set persist.waydroid.height";
   };
   home.sessionVariables = {
     BROWSER="vivaldi";
-	EDITOR="nvim";
-	PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
+    EDITOR="nvim";
+    PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
   };
 
   programs.home-manager.enable = true;
 
   programs.alacritty = {
     enable = true;
-	settings = {
-	  window.opacity = 0.8;
-	  font.family = "Fira Code";
-	  import = [
-	    "~/.config/alacritty/theme.yml"
-	  ];
-	};
+    settings = {
+      window.opacity = 0.8;
+      font.family = "Fira Code";
+      import = [
+        "~/.config/alacritty/theme.yml"
+      ];
+    };
   };
 
   programs.btop = {
     enable = true;
-	settings = {
-	  color_theme = "TTY";
-	  vim_keys = true;
-	};
+    settings = {
+      color_theme = "TTY";
+      vim_keys = true;
+    };
   };
 
   programs.git = import ./.git.nix;
@@ -129,49 +135,49 @@ in
 
   programs.tmux = {
     enable = true;
-	baseIndex = 1;
-	mouse = true;
-	prefix = "C-a";
-	terminal = "screen-256color";
-	extraConfig = ''
-	unbind %
-	bind | split-window -h
+    baseIndex = 1;
+    mouse = true;
+    prefix = "C-a";
+    terminal = "screen-256color";
+    extraConfig = ''
+    unbind %
+    bind | split-window -h
 
-	unbind '"'
-	bind - split-window -v
+    unbind '"'
+    bind - split-window -v
 
-	unbind r
-	bind r source-file ~/.tmux.conf
-	
-	bind -r j resize-pane -D 5
-	bind -r k resize-pane -U 5
-	bind -r l resize-pane -R 5
-	bind -r h resize-pane -L 5
-	'';
+    unbind r
+    bind r source-file ~/.tmux.conf
+    
+    bind -r j resize-pane -D 5
+    bind -r k resize-pane -U 5
+    bind -r l resize-pane -R 5
+    bind -r h resize-pane -L 5
+    '';
   };
 
   programs.waybar = {
     enable = true;
-	settings = {
-	  mainBar = {
-	    layer = "top";
+    settings = {
+      mainBar = {
+        layer = "top";
         position = "top";
 
         # If height property would be not present, it'd be calculated dynamically
         height = 24;
-	    margin-left = 15;
-	    margin-right = 15;
-	    margin-top = 15;
-	
+        margin-left = 15;
+        margin-right = 15;
+        margin-top = 15;
+    
         modules-left = [
             "custom/launcher"
-		    "hyprland/workspaces"
+            "hyprland/workspaces"
         ];
  
         modules-center = [
-		    "clock"
-    	    "hyprland/window"
-		    "tray"
+            "clock"
+            "hyprland/window"
+            "tray"
         ];
 
         modules-right = [
@@ -258,8 +264,8 @@ in
         };
     
         "hyprland/workspaces" = {
-	      on-scroll-up = "hyprctl dispatch workspace e+1";
-	      on-scroll-down = "hyprctl dispatch workspace e-1";
+          on-scroll-up = "hyprctl dispatch workspace e+1";
+          on-scroll-down = "hyprctl dispatch workspace e-1";
             format = " {icon} ";
             format-icons = {
                 "1" = "";
@@ -338,47 +344,47 @@ in
             on-click = "exec power-menu";
             tooltip = false;
         };
-	  };
+      };
 
-	};
+    };
   };
  
   programs.zathura = {
     enable = true;
-	extraConfig = ''
-	  unmap f
-	''; 
-	mappings = {
-	  r = "reload";
-	  p = "print";
-	  f = "toggle_fullscreen";
-	  R = "rotate";
-	  "[fullscreen] f" = "toggle_fullscreen";
-	};
-	options = {
-	  "selection-clipboard" = "clipboard";
-	  font = "Fira Code";
+    extraConfig = ''
+      unmap f
+    ''; 
+    mappings = {
+      r = "reload";
+      p = "print";
+      f = "toggle_fullscreen";
+      R = "rotate";
+      "[fullscreen] f" = "toggle_fullscreen";
+    };
+    options = {
+      "selection-clipboard" = "clipboard";
+      font = "Fira Code";
  
-	  # Open document in fit-width mode by default
-	  "adjust-open" = "best-fit";
+      # Open document in fit-width mode by default
+      "adjust-open" = "best-fit";
  
-	  # search settings
-	  "incremental-search" = true;
+      # search settings
+      "incremental-search" = true;
  
-	  # padding 
-	  "statusbar-h-padding" = 0;
-	  "statusbar-v-padding" = 0;
-	}; 
+      # padding 
+      "statusbar-h-padding" = 0;
+      "statusbar-v-padding" = 0;
+    }; 
   }; 
  
   programs.zsh = {
     enable = true;
-	initExtra = "pfetch";
+    initExtra = "pfetch";
   }; 
 
   services.spotifyd = {
     enable = true;
-	settings = import ./.spotifyd.nix;
+    settings = import ./.spotifyd.nix;
   }; 
 
   wayland.windowManager.hyprland = {
@@ -386,16 +392,16 @@ in
   }; 
  
   gtk = { 
-	  enable = true;
-	  theme = {
-		package = pkgs.lounge-gtk-theme;
-		name = "Lounge-night";
-	  }; 
+      enable = true;
+      theme = {
+        package = pkgs.lounge-gtk-theme;
+        name = "Lounge-night";
+      }; 
  
-	  iconTheme = { 
-		package = pkgs.gnome.adwaita-icon-theme;
-		name = "Adwaita";
-	  }; 
+      iconTheme = { 
+        package = pkgs.gnome.adwaita-icon-theme;
+        name = "Adwaita";
+      }; 
   }; 
 } 
 

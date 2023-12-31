@@ -10,7 +10,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
-	hyprland-plugins = {
+    hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
@@ -25,27 +25,27 @@
 
   outputs = { nixpkgs, home-manager, hyprland, hy3, ... } @ inputs: {
     homeConfigurations."avraham@nixos" = home-manager.lib.homeManagerConfiguration {
-		  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-		  modules = [
-			./home.nix
-			hyprland.homeManagerModules.default
+          modules = [
+            ./home.nix
+            hyprland.homeManagerModules.default
 
-			{
-			  wayland.windowManager.hyprland = {
-				enable = true;
-				xwayland.enable = true;
-				plugins = [
-				  hy3.packages.x86_64-linux.hy3
-				  inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
-				  inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
-				];
-			  };
+            {
+              wayland.windowManager.hyprland = {
+                enable = true;
+                xwayland.enable = true;
+                plugins = [
+                  hy3.packages.x86_64-linux.hy3
+                  inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
+                  inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
+                ];
+              };
               wayland.windowManager.hyprland.settings = {
                 source = "~/.config/hypr/index.conf";
               };
-			}
-		  ];
-	  };
+            }
+          ];
+      };
   };
 }

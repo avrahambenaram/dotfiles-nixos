@@ -7,7 +7,7 @@ selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --conf=$HOME/.config/w
 
 case $selected in
   logout)
-	  hyprctl dispatch exit;;
+    hyprctl dispatch exit;;
   suspend)
     exec systemctl suspend;;
   reboot)
