@@ -1,5 +1,5 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# toradmin@example.orgyour system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, ... }:
@@ -183,6 +183,7 @@ in
   pkgs.spotify-tui
   pkgs.spotifyd
   pkgs.steam-run
+  pkgs.tor-browser-bundle-bin
   pkgs.tmux
   pkgs.unzip
   pkgs.uwufetch
@@ -264,6 +265,25 @@ in
     "steam-original"
     "steam-run"
   ];
+
+  # Tor
+  services.tor = {
+    enable = true;
+    openFirewall = true;
+    relay = {
+      enable = true;
+      role = "relay";
+    };
+    settings = {
+      ContactInfo = "souzaavraham@gmail.com";
+      Nickname = "Avraham";
+      ORPort = 9001;
+      ControlPort = 9051;
+      BandWidthRate = "1 MBytes";
+    };
+  };
+
+  security.pam.services.swaylock = {};
 
   # Virtualisation section
   virtualisation.waydroid.enable = true;
