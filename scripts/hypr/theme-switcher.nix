@@ -125,8 +125,8 @@ def apply_theme(
         f"{HOME}/.config/cava/config"
     )
     create_symlink(
-        f"{HOME}/.config/hypr/scripts/lock/{theme_name}.sh",
-        f"{HOME}/.config/hypr/scripts/lock.sh"
+        f"{HOME}/.config/.themes/hypr/lock/{theme_name}.sh",
+        f"{HOME}/.config/hypr/lock.sh"
     )
 
     # Update Waybar style

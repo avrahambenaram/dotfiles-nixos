@@ -13,7 +13,7 @@
 		"$mod, G, centerwindow"
 		"$mod, D, exec, wofi -c ~/.config/wofi/config -I"
 		"$mod SHIFT, E, exec, power-menu"
-		"$mod, F1, exec, ~/.config/hypr/scripts/lock.sh"
+		"$mod, F1, exec, ~/.config/hypr/lock.sh"
 
 		# Move focus with mod + HJKL
 		"$mod, $left, hy3:movefocus, l"
