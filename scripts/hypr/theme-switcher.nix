@@ -43,12 +43,12 @@ def main(theme):
 def apply_theme_baskerville():
     apply_theme(
         "baskerville",
-        "#a11c1c"
-        "rgba(0, 0, 0, 0.8)"
-        "#a11c1c"
-        "sonokai"
-        "#444"
-        "#222"
+        "#a11c1c",
+        "rgba(0, 0, 0, 0.8)",
+        "#a11c1c",
+        "sonokai",
+        "#444",
+        "#222",
         "#555"
     )
 
