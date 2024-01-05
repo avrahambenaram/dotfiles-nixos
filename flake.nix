@@ -29,6 +29,14 @@
 
           modules = [
             ./home.nix
+			./hypr/clipboard.nix
+			./hypr/input.nix
+			./hypr/keybindings.nix
+			./hypr/misc.nix
+			./hypr/mount.nix
+			./hypr/notification.nix
+			./hypr/output.nix
+			./hypr/xwayland.nix
             hyprland.homeManagerModules.default
 
             {
@@ -40,11 +48,11 @@
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
                 ];
+				settings = {
+	              source = "~/.config/hypr/theme.conf";
+				};
               };
-              wayland.windowManager.hyprland.settings = {
-                source = "~/.config/hypr/index.conf";
-              };
-            }
+			}
           ];
       };
   };
