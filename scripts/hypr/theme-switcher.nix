@@ -7,6 +7,14 @@ import subprocess
 
 HOME = os.environ['HOME']
 
+if not os.path.exists(f"{HOME}/.config/.themes"):
+    subprocess.run([
+        'git',
+        'clone',
+        'https://github.com/avrahambenaram/nix-themes.git',
+        f'{HOME}/.config/.themes'
+    ])
+
 
 def main(theme):
     # Remove and copy styles for Waybar
