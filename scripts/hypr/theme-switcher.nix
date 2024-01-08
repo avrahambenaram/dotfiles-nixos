@@ -4,7 +4,6 @@ pkgs.writers.writePython3Bin "theme-switcher" {} ''
 import os
 import shutil
 import subprocess
-import time
 
 HOME = os.environ['HOME']
 
@@ -180,7 +179,6 @@ def apply_theme(
         f.write(
             ";\n".join(colors)
         )
-    time.sleep(1)
     subprocess.run([
         'hyprctl',
         'reload'
