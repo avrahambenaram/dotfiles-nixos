@@ -4,6 +4,7 @@ pkgs.writers.writePython3Bin "theme-switcher" {} ''
 import os
 import shutil
 import subprocess
+import time
 
 HOME = os.environ['HOME']
 
@@ -17,6 +18,9 @@ if not os.path.exists(f"{HOME}/.config/.themes"):
 
 
 def main(theme):
+    # Restarting services
+    subprocess.run(['pkill', 'waybar'])
+
     # Remove and copy styles for Waybar
     shutil.copyfile(
         HOME + '/.config/.themes/waybar/base.css',
@@ -43,9 +47,6 @@ def main(theme):
         apply_theme_dracula()
     elif theme == "nord":
         apply_theme_nord()
-
-    # Restarting services
-    subprocess.run(['pkill', 'waybar'])
 
 
 def apply_theme_baskerville():
@@ -179,6 +180,11 @@ def apply_theme(
         f.write(
             ";\n".join(colors)
         )
+    time.sleep(1)
+    subprocess.run([
+        'hyprctl',
+        'reload'
+    ])
 
 
 def create_symlink(src, dst):
