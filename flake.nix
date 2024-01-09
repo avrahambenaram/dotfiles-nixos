@@ -21,6 +21,12 @@
       # or "github:outfoxxed/hy3?ref=hl{version}" for a release version of hyprland
       inputs.hyprland.follows = "hyprland";
     };
+
+    # Neovim plugins
+    miasma-nvim.url = "github:xero/miasma.nvim";
+    miasma-nvim.flake = false;
+    omnisharp-vim.url = "github:OmniSharp/omnisharp-vim";
+    omnisharp-vim.flake = false;
   };
 
   outputs = { nixpkgs, home-manager, hyprland, hy3, ... } @ inputs: {
@@ -29,14 +35,14 @@
 
           modules = [
             ./home.nix
-			./hypr/clipboard.nix
-			./hypr/input.nix
-			./hypr/keybindings.nix
-			./hypr/misc.nix
-			./hypr/mount.nix
-			./hypr/notification.nix
-			./hypr/output.nix
-			./hypr/xwayland.nix
+            ./hypr/clipboard.nix
+            ./hypr/input.nix
+            ./hypr/keybindings.nix
+            ./hypr/misc.nix
+            ./hypr/mount.nix
+            ./hypr/notification.nix
+            ./hypr/output.nix
+            ./hypr/xwayland.nix
             hyprland.homeManagerModules.default
 
             {
@@ -48,12 +54,14 @@
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
                 ];
-				settings = {
-	              source = "~/.config/hypr/theme.conf";
-				};
+                settings = {
+                  source = "~/.config/hypr/theme.conf";
+                };
               };
-			}
+            }
           ];
+
+          extraSpecialArgs = { inherit inputs; };
       };
   };
 }

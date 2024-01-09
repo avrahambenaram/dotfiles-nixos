@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   bg-selector = import ./scripts/hypr/bg-selector.nix { inherit pkgs; };
@@ -6,17 +6,37 @@ let
   theme-selector = import ./scripts/hypr/theme-selector.nix { inherit pkgs; };
   theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit pkgs; };
   power-menu = import ./scripts/power-menu.nix { inherit pkgs; };
-  gtk = import ./config/gtk.nix { inherit pkgs; };
 in
-gtk // {
+{
   imports = [
     ./config/alacritty.nix
     ./config/btop.nix
+    ./config/gtk.nix
+    ./config/neovim.nix
     ./config/tmux.nix
     ./config/waybar.nix
     ./config/zathura.nix
     ./config/zsh.nix
   ];
+
+  # Neovim
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        vimPlugins = prev.vimPlugins // {
+          miasma-nvim = prev.vimUtils.buildVimPlugin {
+            name = "miasma";
+            src = inputs.miasma-nvim;
+          };
+          omnisharp-vim = prev.vimUtils.buildVimPlugin {
+            name = "omnisharp-vim";
+            src = inputs.omnisharp-vim;
+          };
+        };
+      })
+    ];
+  };
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "avraham";
@@ -34,6 +54,8 @@ gtk // {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.omnisharp-roslyn
+
     pkgs.cliphist
     pkgs.hyprpicker
     pkgs.udiskie
@@ -100,7 +122,6 @@ gtk // {
     weather="curl http://wttr.in";
     mkdir="mkdir -pv";
     nf="neofetch";
-    vim="nvim";
     lyricstifyS="lyricstify start --highlight-markup \"^m\"";
 
     # Waydroid
@@ -112,7 +133,6 @@ gtk // {
   };
   home.sessionVariables = {
     BROWSER="vivaldi";
-    EDITOR="nvim";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
   };
 
