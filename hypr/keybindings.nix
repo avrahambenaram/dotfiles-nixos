@@ -1,3 +1,11 @@
+{ config, pkgs, ... }:
+
+let
+  bg-selector = import ../scripts/hypr/bg-selector.nix { inherit pkgs; };
+  hypr-screenshot = import ../scripts/hypr/hypr-screenshot.nix { inherit pkgs; };
+  power-menu = import ../scripts/power-menu.nix { inherit pkgs; };
+  theme-selector = import ../scripts/hypr/theme-selector.nix { inherit pkgs; };
+in
 {
   wayland.windowManager.hyprland.settings = {
 	"$mod" = "SUPER";
@@ -12,7 +20,7 @@
 		"$mod SHIFT, Space, togglefloating"
 		"$mod, G, centerwindow"
 		"$mod, D, exec, wofi -c ~/.config/wofi/config -I"
-		"$mod SHIFT, E, exec, power-menu"
+		"$mod SHIFT, E, exec, ${power-menu}/bin/power-menu"
 		"$mod, F1, exec, ~/.config/hypr/lock.sh"
 
 		# Move focus with mod + HJKL
@@ -56,16 +64,16 @@
 
 		# Screenshots
 		", PRINT, exec, grimshot --notify save screen"
-		"SHIFT, PRINT, exec, hypr-screenshot"
+		"SHIFT, PRINT, exec, ${hypr-screenshot}/bin/hypr-screenshot"
 
         # Color picker (requires hyprpicker and wl-clipboard)
 		"$mod, Z, exec, hyprpicker -a"
 
 		# Theme switcher
-		"$mod, T, exec, theme-selector"
+		"$mod, T, exec, ${theme-selector}/bin/theme-selector"
 
 		# Alacritty background
-		"$mod, U, exec, bg-selector"
+		"$mod, U, exec, ${bg-selector}/bin/bg-selector"
 	  ]
 	  ++ (
 		# workspaces

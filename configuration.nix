@@ -177,7 +177,6 @@ in
   pkgs.pipes
   pkgs.python3
   pkgs.qbittorrent
-  pkgs.ripgrep
   pkgs.scrcpy
   pkgs.spotify
   pkgs.spotify-tui

@@ -1,11 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 let
-  bg-selector = import ./scripts/hypr/bg-selector.nix { inherit pkgs; };
-  hypr-screenshot = import ./scripts/hypr/hypr-screenshot.nix { inherit pkgs; };
-  theme-selector = import ./scripts/hypr/theme-selector.nix { inherit pkgs; };
   theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit pkgs; };
-  power-menu = import ./scripts/power-menu.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -75,11 +71,7 @@ in
     pkgs.swaylock-effects
 
     # Scripts
-    bg-selector
-    hypr-screenshot
-    theme-selector
     theme-switcher
-    power-menu
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
