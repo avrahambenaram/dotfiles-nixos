@@ -22,6 +22,7 @@
       "x-scheme-handler/https" = "vivaldi-stable.desktop";
       "x-scheme-handler/about" = "vivaldi-stable.desktop";
       "x-scheme-handler/unknown" = "vivaldi-stable.desktop";
+      "inode/directory" = "Thunar.desktop";
     };
   };
 }

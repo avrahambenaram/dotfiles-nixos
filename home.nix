@@ -51,6 +51,7 @@ in
   # environment.
   home.packages = [
     pkgs.omnisharp-roslyn
+    pkgs.xfce.thunar
 
     pkgs.cliphist
     pkgs.hyprpicker
