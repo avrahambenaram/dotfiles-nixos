@@ -74,6 +74,13 @@ in
 
 		# Alacritty background
 		"$mod, U, exec, ${bg-selector}/bin/bg-selector"
+
+        # Hycov
+        "ALT, $left, hycov:movefocus, l"
+        "ALT, $right, hycov:movefocus, r"
+        "ALT, $up, hycov:movefocus, u"
+        "ALT, $down, hycov:movefocus, d"
+        "$mod, tab, hycov:toggleoverview"
 	  ]
 	  ++ (
 		# workspaces

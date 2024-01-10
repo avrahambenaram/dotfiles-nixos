@@ -22,6 +22,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    hycov = {
+      url = "github:DreamMaoMao/hycov";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # Neovim plugins
     miasma-nvim.url = "github:xero/miasma.nvim";
     miasma-nvim.flake = false;
@@ -29,7 +34,7 @@
     omnisharp-vim.flake = false;
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, hy3, ... } @ inputs: {
+  outputs = { nixpkgs, home-manager, hyprland, hy3, hycov, ... } @ inputs: {
     homeConfigurations."avraham@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
@@ -51,6 +56,7 @@
                 xwayland.enable = true;
                 plugins = [
                   hy3.packages.x86_64-linux.hy3
+                  hycov.packages.x86_64-linux.hycov
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
                 ];
