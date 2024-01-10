@@ -165,6 +165,7 @@ in
   pkgs.inkscape
   pkgs.insomnia
   pkgs.ly
+  pkgs.lynx
   pkgs.nano
   pkgs.ncdu
   pkgs.neofetch
@@ -245,6 +246,9 @@ in
 
   # Auto-cpufreq
   services.auto-cpufreq.enable = true;
+
+  # Flatpak
+  services.flatpak.enable = true;
 
   # Spotifyd
   services.spotifyd.enable = true;
