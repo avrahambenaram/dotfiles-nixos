@@ -53,7 +53,10 @@ local lspkind = require('lspkind')
 cmp.setup({
   mapping = {
     ['<CR>'] = cmp.mapping.confirm({select = false}),
-	['<C-Space>'] = cmp.mapping.complete()
+	['<C-Space>'] = cmp.mapping.complete(),
+	['<C-k>'] = cmp.mapping.select_prev_item(),
+	['<C-j>'] = cmp.mapping.select_next_item(),
+	['<Tab>'] = function() end
   },
   formatting = {
     format = lspkind.cmp_format({

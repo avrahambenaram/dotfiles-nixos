@@ -184,6 +184,7 @@ in
   pkgs.spotifyd
   pkgs.steam-run
   pkgs.tor-browser-bundle-bin
+  pkgs.tiv
   pkgs.tmux
   pkgs.unzip
   pkgs.uwufetch
