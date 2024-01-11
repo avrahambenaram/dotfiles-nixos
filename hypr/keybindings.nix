@@ -19,7 +19,6 @@ in
 		"$mod SHIFT, Space, togglefloating"
 		"$mod, G, centerwindow"
 		"$mod, D, exec, wofi -c ~/.config/wofi/config -I"
-		"$mod, F1, exec, nwg-bar"
 
 		# Move focus with mod + HJKL
 		"$mod, $left, hy3:movefocus, l"
