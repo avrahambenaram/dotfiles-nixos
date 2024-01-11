@@ -10,6 +10,7 @@ in
     ./config/gtk.nix
     ./config/neovim.nix
     ./config/nwg-bar.nix
+    ./config/ranger.nix
     ./config/tmux.nix
     ./config/waybar.nix
     ./config/zathura.nix
