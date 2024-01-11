@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  power-menu = import ../scripts/power-menu.nix {inherit pkgs; };
-in
 {
   programs.waybar = {
     enable = true;
@@ -189,7 +186,7 @@ in
 
         "custom/power" = {
             format ="⏻";
-            on-click = "exec ${power-menu}/bin/power-menu";
+            on-click = "exec nwg-bar";
             tooltip = false;
         };
       };

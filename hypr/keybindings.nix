@@ -3,7 +3,6 @@
 let
   bg-selector = import ../scripts/hypr/bg-selector.nix { inherit pkgs; };
   hypr-screenshot = import ../scripts/hypr/hypr-screenshot.nix { inherit pkgs; };
-  power-menu = import ../scripts/power-menu.nix { inherit pkgs; };
   theme-selector = import ../scripts/hypr/theme-selector.nix { inherit pkgs; };
 in
 {
@@ -20,8 +19,7 @@ in
 		"$mod SHIFT, Space, togglefloating"
 		"$mod, G, centerwindow"
 		"$mod, D, exec, wofi -c ~/.config/wofi/config -I"
-		"$mod SHIFT, E, exec, ${power-menu}/bin/power-menu"
-		"$mod, F1, exec, ~/.config/hypr/lock.sh"
+		"$mod, F1, exec, nwg-bar"
 
 		# Move focus with mod + HJKL
 		"$mod, $left, hy3:movefocus, l"

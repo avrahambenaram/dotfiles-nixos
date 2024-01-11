@@ -9,6 +9,7 @@ in
     ./config/btop.nix
     ./config/gtk.nix
     ./config/neovim.nix
+    ./config/nwg-bar.nix
     ./config/tmux.nix
     ./config/waybar.nix
     ./config/zathura.nix
