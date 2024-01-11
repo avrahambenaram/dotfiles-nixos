@@ -69,6 +69,9 @@ in
     pkgs.slurp
 
     pkgs.nwg-look
+    pkgs.nwg-bar
+    pkgs.nwg-displays
+    pkgs.wlr-randr
     pkgs.swaylock-effects
 
     # Scripts

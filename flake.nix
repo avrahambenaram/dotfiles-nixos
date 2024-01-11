@@ -46,7 +46,6 @@
             ./hypr/misc.nix
             ./hypr/mount.nix
             ./hypr/notification.nix
-            ./hypr/output.nix
             ./hypr/xwayland.nix
             hyprland.homeManagerModules.default
 
@@ -61,7 +60,13 @@
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
                 ];
                 settings = {
-                  source = "~/.config/hypr/theme.conf";
+                  source = [
+                    "~/.config/hypr/theme.conf"
+                    "~/.config/hypr/monitors.conf"
+                  ];
+                  "exec-once" = [
+                    "touch ~/.config/hypr/monitors.conf"
+                  ];
                 };
               };
             }
