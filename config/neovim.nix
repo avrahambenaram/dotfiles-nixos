@@ -74,6 +74,7 @@
       nvim-highlight-colors
       vim-floaterm
       undotree
+      nvim-web-devicons # Optional
       presence-nvim # Optional
 
       vim-nix
