@@ -51,7 +51,6 @@
       nvim-cmp # Required
       cmp-nvim-lsp # Required
       luasnip # Required
-      YouCompleteMe
 
       # Coding XP
       autoclose-nvim
