@@ -70,11 +70,15 @@ in
     pkgs.sway-contrib.grimshot
     pkgs.slurp
 
+    # Complementary Apps
     pkgs.nwg-look
     pkgs.nwg-bar
     pkgs.nwg-displays
     pkgs.wlr-randr
     pkgs.swaylock-effects
+
+    # Night light
+    pkgs.go-sct
 
     # Scripts
     theme-switcher
