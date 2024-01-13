@@ -12,6 +12,7 @@
       # File navigation
       telescope-nvim
       harpoon
+      nvim-tree-lua
 
       # Themes
       rose-pine
@@ -94,6 +95,7 @@
       ${builtins.readFile ./nvim/presence.lua}
       ${builtins.readFile ./nvim/tabnine.lua}
       ${builtins.readFile ./nvim/telescope.lua}
+      ${builtins.readFile ./nvim/tree.lua}
       ${builtins.readFile ./nvim/treesitter.lua}
       ${builtins.readFile ./nvim/trouble.lua}
       ${builtins.readFile ./nvim/undo.lua}
