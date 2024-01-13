@@ -2,6 +2,10 @@
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Disable Netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Set tab size to 4 spaces
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
