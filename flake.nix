@@ -45,6 +45,7 @@
             ./hypr/keybindings.nix
             ./hypr/misc.nix
             ./hypr/mount.nix
+            ./hypr/night-light.nix
             ./hypr/notification.nix
             ./hypr/xwayland.nix
             hyprland.homeManagerModules.default
