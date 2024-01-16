@@ -15,10 +15,5 @@
 
 	  sensitivity = 0;
 	};
-	bind = [
-	  "CONTROL ALT, Q, exec, wtype '/'"
-	  "CONTROL ALT, W, exec, wtype '?'"
-	  "CONTROL ALT, E, exec, wtype 'º'"
-	];
   };
 }

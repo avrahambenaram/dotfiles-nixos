@@ -52,9 +52,6 @@ in
 		"$mod, mouse_down, workspace, e+1"
 		"$mod, mouse_up, workspace, e-1"
 
-		# Key shortcuts
-		"CTRL+SHIFT, W, exec, wtype '?'"
-
 		# App shortcuts
 		"$mod, O, exec, vivaldi"
 		"$mod, N, exec, nautilus"
