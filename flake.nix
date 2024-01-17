@@ -30,6 +30,8 @@
     # Neovim plugins
     miasma-nvim.url = "github:xero/miasma.nvim";
     miasma-nvim.flake = false;
+    catppuccino.url = "github:catppuccin/nvim";
+    catppuccino.flake = false;
     omnisharp-vim.url = "github:OmniSharp/omnisharp-vim";
     omnisharp-vim.flake = false;
   };

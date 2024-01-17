@@ -18,6 +18,7 @@
       rose-pine
       dracula-nvim
       miasma-nvim
+      catppuccino
       nord-nvim
       sonokai
 

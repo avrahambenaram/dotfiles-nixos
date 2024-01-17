@@ -26,6 +26,10 @@ in
             name = "miasma";
             src = inputs.miasma-nvim;
           };
+          catppuccino = prev.vimUtils.buildVimPlugin {
+            name = "catppucino";
+            src = inputs.catppuccino;
+          };
           omnisharp-vim = prev.vimUtils.buildVimPlugin {
             name = "omnisharp-vim";
             src = inputs.omnisharp-vim;
