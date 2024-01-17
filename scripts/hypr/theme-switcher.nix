@@ -16,6 +16,15 @@ if not os.path.exists(f"{HOME}/.config/.themes"):
     ])
 
 
+def isNeovimRunning():
+    try:
+        # Use pgrep to check for Neovim process
+        subprocess.check_output(["pgrep", "-x", "nvim"])
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
+
 def main(theme):
     # Restarting services
     subprocess.run(['pkill', 'waybar'])
@@ -183,6 +192,12 @@ def apply_theme(
         'hyprctl',
         'reload'
     ])
+
+    if isNeovimRunning():
+        subprocess.run(
+            f'nvr -c "colorscheme {theme_name}"',
+            shell=True
+        )
 
 
 def create_symlink(src, dst):

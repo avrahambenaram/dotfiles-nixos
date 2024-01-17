@@ -81,6 +81,9 @@ in
     pkgs.wlr-randr
     pkgs.swaylock-effects
 
+    # Neovim remote
+    pkgs.neovim-remote
+
     # Night light
     pkgs.go-sct
 
@@ -136,6 +139,10 @@ in
     waydroidRotation="sudo waydroid shell wm set-user-rotation lock";
     waydroidWidth="waydroid prop set persist.waydroid.width";
     waydroidHeight="waydroid prop set persist.waydroid.height";
+
+    # Neovim
+    vi="nvim --listen /tmp/nvimsocket";
+    vim="nvim --listen /tmp/nvimsocket";
   };
   home.sessionVariables = {
     BROWSER="vivaldi";
