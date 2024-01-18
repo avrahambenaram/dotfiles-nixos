@@ -5,10 +5,12 @@ let
 in
 {
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+
     ./config/alacritty.nix
     ./config/btop.nix
     ./config/gtk.nix
-    ./config/neovim.nix
+    ./config/nixvim.nix
     ./config/nwg-bar.nix
     ./config/ranger.nix
     ./config/tmux.nix
@@ -25,14 +27,6 @@ in
           miasma-nvim = prev.vimUtils.buildVimPlugin {
             name = "miasma";
             src = inputs.miasma-nvim;
-          };
-          catppuccino = prev.vimUtils.buildVimPlugin {
-            name = "catppucino";
-            src = inputs.catppuccino;
-          };
-          omnisharp-vim = prev.vimUtils.buildVimPlugin {
-            name = "omnisharp-vim";
-            src = inputs.omnisharp-vim;
           };
         };
       })
@@ -56,7 +50,6 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.omnisharp-roslyn
     pkgs.xfce.thunar
 
     pkgs.cliphist
