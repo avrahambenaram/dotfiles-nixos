@@ -2,9 +2,6 @@
   programs.nixvim.plugins.nvim-tree = {
     enable = true;
     disableNetrw = true;
-    git = {
-      enable = true;
-    };
   };
   programs.nixvim.keymaps = [
    {
