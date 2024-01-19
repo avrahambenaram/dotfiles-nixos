@@ -78,7 +78,7 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.gnome.core-utilities.enable = false;
- 
+   
   # Garbage collector
   nix.gc = {
     automatic = true;
@@ -126,9 +126,6 @@ in
     extraGroups = [ "docker" "libvirtd" "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      dotnet-sdk_8
-      dotnet-runtime_8
-      dotnet-aspnetcore_8
     #  thunderbird
     ];
   };
@@ -172,6 +169,7 @@ in
   pkgs.neovim
   pkgs.nurl
   pkgs.ntfs3g
+  pkgs.obs-studio
   pkgs.p7zip
   pkgs.pavucontrol
   pkgs.pfetch
