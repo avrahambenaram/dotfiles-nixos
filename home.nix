@@ -2,6 +2,11 @@
 
 let
   theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit pkgs; };
+  myDotNetEnv = pkgs.dotnetCorePackages.combinePackages [
+    pkgs.dotnetCorePackages.sdk_6_0
+    pkgs.dotnetCorePackages.runtime_6_0
+    pkgs.dotnetCorePackages.aspnetcore_6_0
+  ];
 in
 {
   imports = [
@@ -51,6 +56,9 @@ in
   # environment.
   home.packages = [
     pkgs.xfce.thunar
+
+    # .NET
+    myDotNetEnv
 
     pkgs.cliphist
     pkgs.hyprpicker
@@ -140,6 +148,7 @@ in
   home.sessionVariables = {
     BROWSER="vivaldi";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
+    DOTNET_ROOT = "${myDotNetEnv}";
   };
 
   programs.home-manager.enable = true;

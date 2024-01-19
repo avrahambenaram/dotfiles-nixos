@@ -1,15 +1,18 @@
+{ config, pkgs, ... }:
+
 {
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
       servers = {
-        csharp-ls.enable = true;
         cssls.enable = true;
         eslint.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
         omnisharp.enable = true;
         prismals.enable = true;
+        pylsp.enable = true;
+        pyright.enable = true;
         rust-analyzer = {
           enable = true;
           installCargo = true;
