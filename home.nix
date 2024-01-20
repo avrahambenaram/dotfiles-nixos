@@ -127,8 +127,8 @@ in
 
   home.shellAliases = {
     ls="ls --color=tty";
-    ll="ls -Al";
-    l="ls -l";
+    ll="ls -Alh";
+    l="ls -lh";
     weather="curl http://wttr.in";
     mkdir="mkdir -pv";
     nf="neofetch";
