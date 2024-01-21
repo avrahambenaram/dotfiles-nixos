@@ -4,8 +4,11 @@ let
   theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit pkgs; };
   myDotNetEnv = pkgs.dotnetCorePackages.combinePackages [
     pkgs.dotnetCorePackages.sdk_6_0
+    pkgs.dotnetCorePackages.sdk_8_0
     pkgs.dotnetCorePackages.runtime_6_0
+    pkgs.dotnetCorePackages.runtime_8_0
     pkgs.dotnetCorePackages.aspnetcore_6_0
+    pkgs.dotnetCorePackages.aspnetcore_8_0
   ];
 in
 {
