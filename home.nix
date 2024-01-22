@@ -156,6 +156,7 @@ in
   };
   home.sessionVariables = {
     BROWSER="vivaldi";
+    EDITOR="nvim";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
     DOTNET_ROOT = "${myDotNetEnv}";
   };

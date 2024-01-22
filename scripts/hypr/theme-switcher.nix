@@ -47,6 +47,8 @@ def main(theme):
 
     if theme == "baskerville":
         apply_theme_baskerville()
+    elif theme == "boxuk":
+        apply_theme_boxuk()
     elif theme == "miasma":
         apply_theme_miasma()
     elif theme == "rose-pine":
@@ -67,6 +69,19 @@ def apply_theme_baskerville():
         "#444",
         "#222",
         "#555"
+    )
+
+
+def apply_theme_boxuk():
+    apply_theme(
+        "boxuk",
+        "#148b85",
+        "#262e37",
+        "#148b85",
+        "boxuk-contrast",
+        "#111519",
+        "#07080a",
+        "#262e37"
     )
 
 
