@@ -6,6 +6,7 @@
     dracula-nvim
     miasma-nvim
     nord-nvim
+    rainglow
     rose-pine
     sonokai
   ];

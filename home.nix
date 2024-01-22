@@ -37,6 +37,10 @@ in
             name = "miasma";
             src = inputs.miasma-nvim;
           };
+          rainglow = prev.vimUtils.buildVimPlugin {
+            name = "rainglow";
+            src = inputs.rainglow;
+          };
         };
       })
     ];

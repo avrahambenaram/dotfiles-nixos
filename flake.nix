@@ -30,6 +30,8 @@
     # Neovim plugins
     miasma-nvim.url = "github:xero/miasma.nvim";
     miasma-nvim.flake = false;
+    rainglow.url = "github:rainglow/vim";
+    rainglow.flake = false;
 
     # Nixvim
     nixvim = {
