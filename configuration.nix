@@ -183,6 +183,7 @@ in
   pkgs.steam-run
   pkgs.tor-browser-bundle-bin
   pkgs.tiv
+  pkgs.tty-clock
   pkgs.tmux
   pkgs.unzip
   pkgs.uwufetch
@@ -203,6 +204,7 @@ in
   # Fonts
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "UbuntuMono" ]; })
+    monocraft
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
