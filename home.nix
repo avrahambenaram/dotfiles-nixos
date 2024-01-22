@@ -2,6 +2,7 @@
 
 let
   theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit pkgs; };
+  bg-cycle = import ./scripts/hypr/bg-cycle.nix { inherit pkgs; };
   myDotNetEnv = pkgs.dotnetCorePackages.combinePackages [
     pkgs.dotnetCorePackages.sdk_6_0
     pkgs.dotnetCorePackages.sdk_8_0
@@ -93,6 +94,7 @@ in
 
     # Scripts
     theme-switcher
+    bg-cycle
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

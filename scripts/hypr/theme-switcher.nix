@@ -193,9 +193,16 @@ def apply_theme(
         'reload'
     ])
 
+    # Write file for bg cycle
+    with open(f"{HOME}/.bgcycle", "w") as f:
+        f.write(theme_name)
+
+    # Clean bg-cycle
+    subprocess.run(['rm', f'{HOME}/.bg'])
+
     if isNeovimRunning():
         subprocess.run(
-            f'nvr -c "colorscheme {theme_name}"',
+            f'nvr -c "colorscheme {nvim_theme}"',
             shell=True
         )
 

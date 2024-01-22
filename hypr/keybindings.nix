@@ -2,6 +2,7 @@
 
 let
   bg-selector = import ../scripts/hypr/bg-selector.nix { inherit pkgs; };
+  bg-cycle = import ../scripts/hypr/bg-cycle.nix { inherit pkgs; };
   hypr-screenshot = import ../scripts/hypr/hypr-screenshot.nix { inherit pkgs; };
   theme-selector = import ../scripts/hypr/theme-selector.nix { inherit pkgs; };
 in
@@ -67,8 +68,9 @@ in
 		# Theme switcher
 		"$mod, T, exec, ${theme-selector}/bin/theme-selector"
 
-		# Alacritty background
-		"$mod, U, exec, ${bg-selector}/bin/bg-selector"
+		# Background
+		"$mod, U, exec, ${bg-selector}/bin/bg-selector" # Apps background
+        "$mod, Y, exec, ${bg-cycle}/bin/bg-cycle" # Bg cycle
 
         # Hycov
         "ALT, $left, hycov:movefocus, l"
