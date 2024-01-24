@@ -3,6 +3,7 @@
 {
   imports = [
     ./nvim/autoclose.nix
+    ./nvim/clipboard.nix
     ./nvim/colors.nix
     ./nvim/comment.nix
     ./nvim/floaterm.nix
@@ -21,20 +22,22 @@
     ./nvim/undo.nix
   ];
 
-  programs.nixvim.enable = true;
-  programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
-    # Window additions
-    vim-visual-multi
+  programs.nixvim = {
+    enable = true;
+    extraPlugins = with pkgs.vimPlugins; [
+      # Window additions
+      vim-visual-multi
 
-    # Others
-    nvim-web-devicons # Optional
-  ];
-  programs.nixvim.extraPackages = with pkgs; [
-    ripgrep
-    lua-language-server
-    rnix-lsp
+      # Others
+      nvim-web-devicons # Optional
+    ];
+    extraPackages = with pkgs; [
+      ripgrep
+      lua-language-server
+      rnix-lsp
 
-    xclip
-  ];
-  programs.nixvim.plugins.nix.enable = true;
+      xclip
+    ];
+    plugins.nix.enable = true;
+  };
 }
