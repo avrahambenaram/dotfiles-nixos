@@ -5,15 +5,8 @@
   };
   programs.nixvim.keymaps = [
     {
-      mode = "n";
-      key = "<C-y>y";
-      action = "\"+yy";
-      options.silent = true;
-    }
-    {
-      mode = "v";
       key = "<C-y>";
-      action = "\"+y<C-c>";
+      action = "\"+y";
       options.silent = true;
     }
   ];
