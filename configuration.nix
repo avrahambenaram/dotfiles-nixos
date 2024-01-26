@@ -4,12 +4,6 @@
 
 { config, pkgs, lib, ... }:
 
-let
-  unimatrix = import (builtins.fetchGit {
-    url = "https://github.com/avrahambenaram/unimatrix";
-    name = "unimatrix";
-  }) { inherit pkgs; };
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -130,70 +124,70 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-  pkgs.alacritty
-  pkgs.auto-cpufreq
-  pkgs.brightnessctl
-  pkgs.bash
-  pkgs.btop
-  pkgs.cava
-  pkgs.calcurse
-  pkgs.curl
-  pkgs.discord
-  pkgs.docker-compose
-  pkgs.exfatprogs
-  pkgs.eza
-  pkgs.figma-linux
-  pkgs.flatpak
-  pkgs.gimp
-  pkgs.gnome.nautilus
-  pkgs.gparted
-  pkgs.gzip
-  pkgs.hollywood
-  pkgs.htop
-  pkgs.home-manager
-  pkgs.imv
-  pkgs.inkscape
-  pkgs.insomnia
-  pkgs.ly
-  pkgs.lynx
-  pkgs.nano
-  pkgs.ncdu
-  pkgs.neofetch
-  pkgs.neovim
-  pkgs.nurl
-  pkgs.ntfs3g
-  pkgs.obs-studio
-  pkgs.openssl
-  pkgs.p7zip
-  pkgs.pavucontrol
-  pkgs.pfetch
-  pkgs.pipes
-  pkgs.python3
-  pkgs.qbittorrent
-  pkgs.scrcpy
-  pkgs.spotify
-  pkgs.spotify-tui
-  pkgs.spotifyd
-  pkgs.steam-run
-  pkgs.tor-browser-bundle-bin
-  pkgs.tiv
-  pkgs.tty-clock
-  pkgs.tmux
-  pkgs.unzip
-  pkgs.uwufetch
-  pkgs.vesktop
-  pkgs.vimPlugins.packer-nvim
-  pkgs.vivaldi
-  pkgs.vlc
-  pkgs.wget
-  pkgs.wpsoffice
-  pkgs.wtype
-  pkgs.yt-dlp
-  pkgs.zathura
-  pkgs.zsh
+  environment.systemPackages = with pkgs; [
+  alacritty
+  auto-cpufreq
+  brightnessctl
+  bash
+  btop
+  cava
+  calcurse
+  curl
+  discord
+  docker-compose
+  exfatprogs
+  eza
+  figma-linux
+  flatpak
+  gimp
+  gnome.nautilus
+  gparted
+  gzip
+  hollywood
+  htop
+  home-manager
+  imv
+  inkscape
+  insomnia
+  ly
+  lynx
+  nano
+  ncdu
+  neofetch
+  neovim
+  nurl
+  ntfs3g
+  obs-studio
+  openssl
+  p7zip
+  pavucontrol
+  pfetch
+  pipes
+  python3
+  qbittorrent
+  scrcpy
+  spotify
+  spotify-tui
+  spotifyd
+  steam-run
+  tor-browser-bundle-bin
+  tiv
+  tty-clock
+  tmux
+  unzip
+  uwufetch
+  vesktop
+  vimPlugins.packer-nvim
+  vivaldi
+  vlc
+  wget
+  wpsoffice
+  wtype
+  yt-dlp
+  zathura
+  zsh
 
-  unimatrix
+  nur.repos.avrahambenaram.unimatrix
   ];
 
   # Fonts
