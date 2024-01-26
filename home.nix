@@ -19,6 +19,7 @@ in
     ./config/alacritty.nix
     ./config/btop.nix
     ./config/gtk.nix
+    ./config/nixpkgs.nix
     ./config/nixvim.nix
     ./config/nwg-bar.nix
     ./config/ranger.nix
