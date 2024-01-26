@@ -5,9 +5,10 @@
 { config, pkgs, lib, ... }:
 
 let
-  unimatrix = import (builtins.fetchTarball "https://github.com/avrahambenaram/unimatrix/archive/master.tar.gz") {
-    inherit pkgs;
-  };
+  unimatrix = import (builtins.fetchGit {
+    url = "https://github.com/avrahambenaram/unimatrix";
+    name = "unimatrix";
+  }) { inherit pkgs; };
 in
 {
   imports =
