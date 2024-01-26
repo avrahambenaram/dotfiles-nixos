@@ -74,6 +74,7 @@ in
     pkgs.swaynotificationcenter
     pkgs.swww
     pkgs.waybar
+    pkgs.wl-clipboard
     pkgs.wl-clip-persist
     pkgs.wofi
 
