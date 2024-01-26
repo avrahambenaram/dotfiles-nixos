@@ -5,23 +5,8 @@
 { config, pkgs, lib, ... }:
 
 let
-  unimatrix = pkgs.stdenv.mkDerivation rec {
-    name = "unimatrix";
-    version = "1.0.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "will8211";
-      repo = "unimatrix";
-      rev = "65793c237553bf657af2f2248d2a2dc84169f5c4";
-      hash = "sha256-fiaVEc0rtZarUQlUwe1V817qWRx4LnUyRD/j2vWX5NM=";
-    };
-    
-    phases = "installPhase";
-
-    installPhase = ''
-      mkdir -p $out/bin
-      cp $src/unimatrix.py $out/bin/unimatrix
-      chmod +x $out/bin/unimatrix
-    '';
+  unimatrix = import (builtins.fetchTarball "https://github.com/avrahambenaram/unimatrix/archive/master.tar.gz") {
+    inherit pkgs;
   };
 in
 {
@@ -35,6 +20,14 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 15;
  
+
+  # NUR
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
+
   # Nix store
   nix.optimise.automatic = true;
 
@@ -170,6 +163,7 @@ in
   pkgs.nurl
   pkgs.ntfs3g
   pkgs.obs-studio
+  pkgs.openssl
   pkgs.p7zip
   pkgs.pavucontrol
   pkgs.pfetch
