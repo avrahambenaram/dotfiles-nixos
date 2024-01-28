@@ -6,11 +6,23 @@
       # Init
       number = true;
       relativenumber = true;
+      numberwidth = 4;
 
       # Set tab size to 4 spaces
-      tabstop = 4;
-      softtabstop = 4;
-      shiftwidth = 4;
+      tabstop = 2;
+      softtabstop = 2;
+      shiftwidth = 2;
+
+      confirm = true;
+
+      wrap = true;
+      breakindent = true;
+      colorcolumn = "80";
+
+      cursorline = true;
+      cursorlineopt = "both";
+
+      scrolloff = 10;
     };
     keymaps = [
       {
