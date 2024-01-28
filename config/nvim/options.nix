@@ -17,7 +17,7 @@
 
       wrap = true;
       breakindent = true;
-      colorcolumn = "80";
+      colorcolumn = "100";
 
       cursorline = true;
       cursorlineopt = "both";
