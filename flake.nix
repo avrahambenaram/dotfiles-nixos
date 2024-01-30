@@ -49,14 +49,6 @@
 
           modules = [
             ./home.nix
-            ./hypr/clipboard.nix
-            ./hypr/input.nix
-            ./hypr/keybindings.nix
-            ./hypr/misc.nix
-            ./hypr/mount.nix
-            ./hypr/night-light.nix
-            ./hypr/notification.nix
-            ./hypr/xwayland.nix
             hyprland.homeManagerModules.default
 
             {
@@ -69,15 +61,6 @@
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
                   inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
                 ];
-                settings = {
-                  source = [
-                    "~/.config/hypr/theme.conf"
-                    "~/.config/hypr/monitors.conf"
-                  ];
-                  "exec-once" = [
-                    "touch ~/.config/hypr/monitors.conf"
-                  ];
-                };
               };
             }
           ];

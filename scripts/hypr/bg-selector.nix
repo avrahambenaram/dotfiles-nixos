@@ -1,4 +1,4 @@
-{ pkgs }:
+{ config, pkgs }:
 
 let
   bg-cava = import ./bg-cava.nix { inherit pkgs; };
@@ -10,7 +10,7 @@ pkgs.writeShellScriptBin "bg-selector" ''
 
 entries="Cava Pipes Unimatrix Close"
 
-selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --conf=$HOME/.config/wofi/config.power --style=$HOME/.config/wofi/style.widgets.css | awk '{print tolower($1)}')
+selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --conf=${config.xdg.configHome}/wofi/config.power --style=${config.xdg.configHome}/wofi/style.widgets.css | awk '{print tolower($1)}')
 
 case $selected in
   cava)

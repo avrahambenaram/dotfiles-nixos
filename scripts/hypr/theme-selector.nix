@@ -1,19 +1,19 @@
-{ pkgs }:
+{ config, pkgs }:
 
 let
-  theme-switcher = import ./theme-switcher.nix { inherit pkgs; };
+  theme-switcher = import ./theme-switcher.nix { inherit config; inherit pkgs; };
 in
 pkgs.writeShellScriptBin "theme-selector" ''
 
 entries="Baskerville Boxuk Dracula Miasma Nord Rose-Pine"
 
-selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --conf=$HOME/.config/wofi/config.power --style=$HOME/.config/wofi/style.widgets.css | awk '{print tolower($1)}')
+selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --conf=${config.xdg.configHome}/wofi/config.power --style=${config.xdg.configHome}/wofi/style.widgets.css | awk '{print tolower($1)}')
 
 case $selected in
   baskerville)
 	${theme-switcher}/bin/theme-switcher baskerville;;
   boxuk)
-    ${theme-switcher}/bin/theme-switcher boxuk;;
+  ${theme-switcher}/bin/theme-switcher boxuk;;
   dracula)
 	${theme-switcher}/bin/theme-switcher dracula;;
   miasma)

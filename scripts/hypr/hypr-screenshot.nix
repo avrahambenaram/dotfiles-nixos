@@ -1,10 +1,10 @@
-{ pkgs }:
+{ config, pkgs }:
 
 pkgs.writeShellScriptBin "hypr-screenshot" ''
 
 entries="Active Screen Output Area Window"
 
-selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --style=$HOME/.config/wofi/style.widgets.css --conf=$HOME/.config/wofi/config.screenshot | awk '{print tolower($1)}')
+selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --style=${config.xdg.configHome}/wofi/style.widgets.css --conf=${config.xdg.configHome}/wofi/config.screenshot | awk '{print tolower($1)}')
 
 case $selected in
   active)

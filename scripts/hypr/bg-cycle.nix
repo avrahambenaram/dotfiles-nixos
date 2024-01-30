@@ -1,16 +1,17 @@
-{ pkgs }:
+{ config, pkgs }:
 
 pkgs.writers.writePython3Bin "bg-cycle" {} ''
 import subprocess
 import os
 
 HOME = os.environ['HOME']
+CONFIGDIR = "${config.xdg.configHome}"
 
 bgCycleTheme = open(f'{HOME}/.bgcycle', 'r')
 bgTheme = bgCycleTheme.read()
 
 subprocess.run(['touch', f'{HOME}/.bg'])
-bgPaths = f'{HOME}/.config/.themes/bg/{bgTheme}/'
+bgPaths = f'{CONFIGDIR}/.themes/bg/{bgTheme}/'
 lsProcess = subprocess.run(
     ['ls', bgPaths],
     capture_output=True,

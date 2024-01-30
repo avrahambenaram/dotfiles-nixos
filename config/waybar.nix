@@ -180,7 +180,7 @@
 
         "custom/launcher" = {
             format =" ";
-            on-click = "exec wofi -c ~/.config/wofi/config -I";
+            on-click = "exec wofi -c ${config.xdg.configHome}/wofi/config -I";
             tooltip = false;
         };
 

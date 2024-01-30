@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 let
-  theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit pkgs; };
-  bg-cycle = import ./scripts/hypr/bg-cycle.nix { inherit pkgs; };
+  theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit config; inherit pkgs; };
+  bg-cycle = import ./scripts/hypr/bg-cycle.nix { inherit config; inherit pkgs; };
   myDotNetEnv = pkgs.dotnetCorePackages.combinePackages [
     pkgs.dotnetCorePackages.sdk_6_0
     pkgs.dotnetCorePackages.sdk_8_0
@@ -27,6 +27,7 @@ in
     ./config/waybar.nix
     ./config/zathura.nix
     ./config/zsh.nix
+    ./hypr/main.nix
   ];
 
   # Neovim
@@ -177,6 +178,8 @@ in
     enable = true;
     settings = import ./.spotifyd.nix;
   }; 
+
+  xdg.enable = true;
 } 
 
 

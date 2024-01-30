@@ -1,4 +1,4 @@
-{ pkgs }:
+{ config, pkgs }:
 
 pkgs.writers.writePython3Bin "theme-switcher" {} ''
 import os
@@ -6,13 +6,14 @@ import shutil
 import subprocess
 
 HOME = os.environ['HOME']
+CONFIGDIR = "${config.xdg.configHome}"
 
-if not os.path.exists(f"{HOME}/.config/.themes"):
+if not os.path.exists(f"{CONFIGDIR}/.themes"):
     subprocess.run([
         'git',
         'clone',
         'https://github.com/avrahambenaram/nix-themes.git',
-        f'{HOME}/.config/.themes'
+        f'{CONFIGDIR}/.themes'
     ])
 
 
@@ -31,18 +32,18 @@ def main(theme):
 
     # Remove and copy styles for Waybar
     shutil.copyfile(
-        HOME + '/.config/.themes/waybar/base.css',
-        HOME + '/.config/waybar/style.css'
+        f'{CONFIGDIR}/.themes/waybar/base.css',
+        f'{CONFIGDIR}/waybar/style.css'
     )
 
     # Remove and copy styles for Wofi
     shutil.copyfile(
-        HOME + '/.config/.themes/wofi/style-base.css',
-        HOME + '/.config/wofi/style.css'
+        f'{CONFIGDIR}/.themes/wofi/style-base.css',
+        f'{CONFIGDIR}/wofi/style.css'
     )
     shutil.copyfile(
-        HOME + '/.config/.themes/wofi/style.widgets-base.css',
-        HOME + '/.config/wofi/style.widgets.css'
+        f'{CONFIGDIR}/.themes/wofi/style.widgets-base.css',
+        f'{CONFIGDIR}/wofi/style.widgets.css'
     )
 
     if theme == "baskerville":
@@ -149,20 +150,20 @@ def apply_theme(
         ):
     # Create symbolic links for config files
     create_symlink(
-        f"{HOME}/.config/.themes/hypr/{theme_name}.conf",
-        f"{HOME}/.config/hypr/theme.conf"
+        f"{CONFIGDIR}/.themes/hypr/{theme_name}.conf",
+        f"{CONFIGDIR}/hypr/theme.conf"
     )
     create_symlink(
-        f"{HOME}/.config/.themes/cava/{theme_name}",
-        f"{HOME}/.config/cava/config"
+        f"{CONFIGDIR}/.themes/cava/{theme_name}",
+        f"{CONFIGDIR}/cava/config"
     )
     create_symlink(
-        f"{HOME}/.config/.themes/hypr/lock/{theme_name}.sh",
-        f"{HOME}/.config/hypr/lock.sh"
+        f"{CONFIGDIR}/.themes/hypr/lock/{theme_name}.sh",
+        f"{CONFIGDIR}/hypr/lock.sh"
     )
 
     # Update Waybar style
-    with open(f"{HOME}/.config/waybar/style.css", "a") as f:
+    with open(f"{CONFIGDIR}/waybar/style.css", "a") as f:
         colors = [
             f"@define-color highlight {color_highlight} ",
             f"@define-color base1  {color_base1}",
@@ -174,8 +175,8 @@ def apply_theme(
 
     # Update Alacritty config
     create_symlink(
-        f"{HOME}/.config/.themes/alacritty/{theme_name}.yml",
-        f"{HOME}/.config/alacritty/theme.yml"
+        f"{CONFIGDIR}/.themes/alacritty/{theme_name}.yml",
+        f"{CONFIGDIR}/alacritty/theme.yml"
     )
 
     # Update NVIM theme
@@ -183,7 +184,7 @@ def apply_theme(
         f.write(nvim_theme)
 
     # Update WOFI
-    with open(f"{HOME}/.config/wofi/style.css", "a") as f:
+    with open(f"{CONFIGDIR}/wofi/style.css", "a") as f:
         colors = [
             f"@define-color highlight {color_highlight}",
             f"@define-color base1 {wofibase}",
@@ -193,7 +194,7 @@ def apply_theme(
         f.write(
             ";\n".join(colors)
         )
-    with open(f"{HOME}/.config/wofi/style.widgets.css", "a") as f:
+    with open(f"{CONFIGDIR}/wofi/style.widgets.css", "a") as f:
         colors = [
             f"@define-color highlight {color_highlight}",
             f"@define-color base1 {wofibase}",

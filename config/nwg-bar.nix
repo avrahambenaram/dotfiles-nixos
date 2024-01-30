@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  home.file = {
-    ".config/nwg-bar/bar.json".text = ''
+  xdg.configFile = {
+    "nwg-bar/bar.json".text = ''
       [
         {
           "label": "Lock",
-          "exec": "sh /home/avraham/.config/hypr/lock.sh",
+          "exec": "sh ${config.xdg.configHome}/hypr/lock.sh",
           "icon": "${pkgs.nwg-bar}/share/nwg-bar/images/system-lock-screen.svg"
         },
         {
@@ -27,7 +27,7 @@
       ]
     '';
 
-    ".config/nwg-bar/style.css".text = ''
+    "nwg-bar/style.css".text = ''
       window {
               background-color: rgba (0, 0, 0, 0.6);
               border-radius: 10px;

@@ -1,3 +1,5 @@
+{ config, pkgs, ... }:
+
 {
   programs.alacritty = {
     enable = true;
@@ -5,7 +7,7 @@
       window.opacity = 0.8;
       font.family = "Fira Code";
       import = [
-        "~/.config/alacritty/theme.yml"
+        "${config.xdg.configHome}/alacritty/theme.yml"
       ];
     };
   };

@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
 let
-  bg-selector = import ../scripts/hypr/bg-selector.nix { inherit pkgs; };
-  bg-cycle = import ../scripts/hypr/bg-cycle.nix { inherit pkgs; };
-  hypr-screenshot = import ../scripts/hypr/hypr-screenshot.nix { inherit pkgs; };
-  theme-selector = import ../scripts/hypr/theme-selector.nix { inherit pkgs; };
+  scriptsParams = {
+    inherit config;
+    inherit pkgs;
+  };
+  bg-selector = import ../scripts/hypr/bg-selector.nix scriptsParams;
+  bg-cycle = import ../scripts/hypr/bg-cycle.nix scriptsParams;
+  hypr-screenshot = import ../scripts/hypr/hypr-screenshot.nix scriptsParams;
+  theme-selector = import ../scripts/hypr/theme-selector.nix scriptsParams;
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -19,7 +23,7 @@ in
 		"$mod, C, exit"
 		"$mod SHIFT, Space, togglefloating"
 		"$mod, G, centerwindow"
-		"$mod, D, exec, wofi -c ~/.config/wofi/config -I"
+		"$mod, D, exec, wofi -c ${config.xdg.configHome}/wofi/config -I"
         "$mod, F1, exec, nwg-bar"
 
 		# Move focus with mod + HJKL
