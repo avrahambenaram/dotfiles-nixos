@@ -27,7 +27,7 @@ in
     ./config/waybar.nix
     ./config/zathura.nix
     ./config/zsh.nix
-    ./hypr/main.nix
+    ./hypr
   ];
 
   # Neovim
