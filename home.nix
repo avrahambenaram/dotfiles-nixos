@@ -11,6 +11,7 @@ let
     pkgs.dotnetCorePackages.aspnetcore_6_0
     pkgs.dotnetCorePackages.aspnetcore_8_0
   ];
+
   postman = pkgs.callPackage ./pkgs/postman { };
 in
 {
@@ -31,6 +32,12 @@ in
     ./config/zsh.nix
     ./hypr
   ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
 
   # Neovim
   nixpkgs = {
@@ -66,40 +73,40 @@ in
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.xfce.thunar
+  home.packages = with pkgs; [
+    xfce.thunar
 
     # .NET
     myDotNetEnv
 
-    pkgs.cliphist
-    pkgs.hyprpicker
-    pkgs.udiskie
-    pkgs.swaynotificationcenter
-    pkgs.swww
-    pkgs.waybar
-    pkgs.wl-clipboard
-    pkgs.wl-clip-persist
-    pkgs.wofi
+    cliphist
+    udiskie
+    swaynotificationcenter
+    swww
+    waybar
+    wl-clipboard
+    wl-clip-persist
+    wofi
+    nur.repos.avrahambenaram.hyprpicker
 
     # Screenshot
-    pkgs.grim
-    pkgs.grimblast
-    pkgs.sway-contrib.grimshot
-    pkgs.slurp
+    grim
+    grimblast
+    sway-contrib.grimshot
+    slurp
 
     # Complementary Apps
-    pkgs.nwg-look
-    pkgs.nwg-bar
-    pkgs.nwg-displays
-    pkgs.wlr-randr
-    pkgs.swaylock-effects
+    nwg-look
+    nwg-bar
+    nwg-displays
+    wlr-randr
+    swaylock-effects
 
     # Neovim remote
-    pkgs.neovim-remote
+    neovim-remote
 
     # Night light
-    pkgs.go-sct
+    go-sct
 
     # Scripts
     theme-switcher
