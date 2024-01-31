@@ -30,12 +30,6 @@ def main(theme):
     # Restarting services
     subprocess.run(['pkill', 'waybar'])
 
-    # Remove and copy styles for Waybar
-    shutil.copyfile(
-        f'{CONFIGDIR}/.themes/waybar/base.css',
-        f'{CONFIGDIR}/waybar/style.css'
-    )
-
     # Remove and copy styles for Wofi
     shutil.copyfile(
         f'{CONFIGDIR}/.themes/wofi/style-base.css',
@@ -163,7 +157,7 @@ def apply_theme(
     )
 
     # Update Waybar style
-    with open(f"{CONFIGDIR}/waybar/style.css", "a") as f:
+    with open(f"{CONFIGDIR}/waybar/colors.css", "w") as f:
         colors = [
             f"@define-color highlight {color_highlight} ",
             f"@define-color base1  {color_base1}",
@@ -172,6 +166,7 @@ def apply_theme(
         f.write(
             ";\n".join(colors)
         )
+        f.close()
 
     # Update Alacritty config
     create_symlink(
