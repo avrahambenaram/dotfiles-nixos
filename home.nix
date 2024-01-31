@@ -11,6 +11,7 @@ let
     pkgs.dotnetCorePackages.aspnetcore_6_0
     pkgs.dotnetCorePackages.aspnetcore_8_0
   ];
+  postman = pkgs.callPackage ./pkgs/postman { };
 in
 {
   imports = [
@@ -102,6 +103,8 @@ in
     # Scripts
     theme-switcher
     bg-cycle
+
+    postman
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
