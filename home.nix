@@ -26,6 +26,7 @@ in
     ./config/ranger.nix
     ./config/tmux.nix
     ./config/waybar.nix
+    ./config/wofi.nix
     ./config/zathura.nix
     ./config/zsh.nix
     ./hypr
