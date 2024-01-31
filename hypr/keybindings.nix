@@ -19,12 +19,16 @@ in
 	"$down" = "J";
 	bind =
 	  [
-        "$mod, Q, killactive"
+    "$mod, Q, killactive"
 		"$mod, C, exit"
 		"$mod SHIFT, Space, togglefloating"
 		"$mod, G, centerwindow"
 		"$mod, D, exec, wofi -c ${config.xdg.configHome}/wofi/config -I"
-        "$mod, F1, exec, nwg-bar"
+    "$mod, F1, exec, nwg-bar"
+
+    # Special workspace
+    "$mod SHIFT, minus, movetoworkspace, special"
+    "$mod, minus, togglespecialworkspace"
 
 		# Move focus with mod + HJKL
 		"$mod, $left, hy3:movefocus, l"
