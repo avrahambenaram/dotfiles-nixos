@@ -19,7 +19,6 @@ in
     inputs.nixvim.homeManagerModules.nixvim
 
     ./config/alacritty.nix
-    ./config/btop.nix
     ./config/gtk.nix
     ./config/nixpkgs.nix
     ./config/nixvim.nix

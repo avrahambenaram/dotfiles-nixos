@@ -63,7 +63,8 @@ def apply_theme_baskerville():
         "sonokai",
         "#444",
         "#222",
-        "#555"
+        "#555",
+        "TTY"
     )
 
 
@@ -76,7 +77,8 @@ def apply_theme_boxuk():
         "boxuk-contrast",
         "#111519",
         "#07080a",
-        "#262e37"
+        "#262e37",
+        "matcha-dark-sea"
     )
 
 
@@ -89,7 +91,8 @@ def apply_theme_miasma():
         "miasma",
         "#444",
         "#222",
-        "#555"
+        "#555",
+        "gruvbox_material_dark"
     )
 
 
@@ -102,7 +105,8 @@ def apply_theme_rose_pine():
         "rose-pine",
         "#444",
         "#232136",
-        "#555"
+        "#555",
+        "TTY"
     )
 
 
@@ -115,7 +119,8 @@ def apply_theme_dracula():
         "dracula",
         "#444",
         "#282a36",
-        "#555"
+        "#555",
+        "dracula"
     )
 
 
@@ -128,7 +133,8 @@ def apply_theme_nord():
         "nord",
         "#2e3440",
         "#3b4252",
-        "#2f3441"
+        "#2f3441",
+        "nord"
     )
 
 
@@ -140,7 +146,8 @@ def apply_theme(
         nvim_theme,
         wofibase,
         wofibase1,
-        wofibase2
+        wofibase2,
+        btop_theme
         ):
     # Create symbolic links for config files
     create_symlink(
@@ -177,6 +184,10 @@ def apply_theme(
     # Update NVIM theme
     with open(f"{HOME}/.nvimtheme", "w") as f:
         f.write(nvim_theme)
+
+    # Update btop
+    with open(f"{CONFIGDIR}/btop/btop.conf", "w") as f:
+        f.write(f'color_theme = "{btop_theme}"\nvim_keys = True')
 
     # Update WOFI
     with open(f"{CONFIGDIR}/wofi/style.css", "a") as f:
