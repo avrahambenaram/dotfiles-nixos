@@ -166,9 +166,6 @@ in
     # Neovim
     vi="nvim --listen /tmp/nvimsocket";
     vim="nvim --listen /tmp/nvimsocket";
-
-    # Nix shell
-    nix-shell="nix-shell --run zsh";
   };
   home.sessionVariables = {
     BROWSER="vivaldi";
