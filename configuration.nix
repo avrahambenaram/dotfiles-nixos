@@ -122,6 +122,15 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
+  # Ozone wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Permissible user shells
+  environment.shells = with pkgs; [
+    bash
+    zsh
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -158,6 +167,7 @@
   nurl
   ntfs3g
   obs-studio
+  onefetch
   openssl
   p7zip
   pavucontrol
