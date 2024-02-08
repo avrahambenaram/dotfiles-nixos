@@ -14,6 +14,7 @@
     ./nvim/lualine.nix
     ./nvim/options.nix
     ./nvim/presence.nix # Optional
+    ./nvim/snippets.nix
     ./nvim/tabnine.nix
     ./nvim/telescope.nix
     ./nvim/tree.nix # Optional

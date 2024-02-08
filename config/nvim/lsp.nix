@@ -39,7 +39,6 @@
       };
     };
     cmp-nvim-lsp.enable = true;
-    luasnip.enable = true;
     nvim-cmp = {
       enable = true;
       mapping = {
