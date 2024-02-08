@@ -8,6 +8,7 @@
           ["("] = { escape = false, close = true, pair = "()" },
           ["["] = { escape = false, close = true, pair = "[]" },
           ["{"] = { escape = false, close = true, pair = "{}" },
+          ["<"] = { escape = false, close = true, pair = "<>", enabled_filetypes = { "markdown", "html" }},
 
           [">"] = { escape = true, close = false, pair = "<>" },
           [")"] = { escape = true, close = false, pair = "()" },
