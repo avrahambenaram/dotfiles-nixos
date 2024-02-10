@@ -16,6 +16,7 @@
         html.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
+        nixd.enable = true;
         omnisharp = {
           enable = true;
           extraOptions = {
