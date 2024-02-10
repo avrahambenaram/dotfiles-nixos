@@ -16,7 +16,12 @@
         html.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
-        omnisharp.enable = true;
+        omnisharp = {
+          enable = true;
+          extraOptions = {
+            "DotNet:enablePackageRestore" = true;
+          };
+        };
         prismals.enable = true;
         pylsp.enable = true;
         pyright.enable = true;
