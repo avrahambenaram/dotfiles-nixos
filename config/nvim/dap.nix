@@ -82,14 +82,19 @@ in
 
   dap.adapters = {
     ["pwa-node"] = {
-      ["host"] = "localhost",
-      ["port"] = "${"$"}{port}",
-      ["type"] = "server",
-      ["executable"] = {
+      host = 'localhost',
+      port = '${"$"}{port}',
+      type = 'server',
+      executable = {
         command = "node",
         -- 💀 Make sure to update this path to point to your installation
         args = {"${dapJsServer}/src/dapDebugServer.js", "${"$"}{port}"},
       }
+    },
+    ["chrome"] = {
+      type = 'executable',
+      command = "node",
+      args = {"${dapJsServer}/src/dapDebugServer.js", "${"$"}{port}"},
     },
     ["coreclr"] = {
       type = 'executable',
@@ -106,6 +111,30 @@ in
         ["program"] = "${"$"}{file}",
         ["request"] = "launch",
         ["type"] = "pwa-node"
+      }
+    },
+    ["javascriptreact"] = {
+      {
+        type = "chrome",
+        request = "attach",
+        program = "${"$"}{file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${"$"}{workspaceFolder}"
+      }
+    },
+    ["typescriptreact"] = {
+      {
+        type = "chrome",
+        request = "attach",
+        program = "${"$"}{file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${"$"}{workspaceFolder}"
       }
     },
     ["cs"] = {
