@@ -149,6 +149,12 @@ in
           -- Construct the path to the project file
           local project_file_path = vim.fn.getcwd() .. '/' .. current_folder .. '.csproj'
 
+          if vim.fn.filereadable(project_file_path) == 0 then
+            local dll_path = vim.fn.input('Path to dll', vim.fn.getcwd())
+            return dll_path
+          end
+
+
           -- Read the contents of the project file
           local project_file_content = vim.fn.readfile(project_file_path)
 
