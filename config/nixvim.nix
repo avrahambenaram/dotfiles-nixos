@@ -6,6 +6,7 @@
     ./nvim/clipboard.nix
     ./nvim/colors.nix
     ./nvim/comment.nix
+    ./nvim/dap.nix
     ./nvim/floaterm.nix
     ./nvim/fugitive.nix
     ./nvim/harpoon.nix
