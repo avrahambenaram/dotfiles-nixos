@@ -143,7 +143,29 @@ in
         name = "launch - netcoredbg",
         request = "launch",
         program = function()
-            return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+            -- Get the current folder name
+          local current_folder = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+          -- Construct the path to the project file
+          local project_file_path = vim.fn.getcwd() .. '/' .. current_folder .. '.csproj'
+
+          -- Read the contents of the project file
+          local project_file_content = vim.fn.readfile(project_file_path)
+
+          -- Extract the target framework from the project file content
+          local target_framework = ""
+          for _, line in ipairs(project_file_content) do
+            local match = line:match("<TargetFramework>(.+)</TargetFramework>")
+            if match then
+              target_framework = match
+              break
+            end
+          end
+
+          -- Construct the DLL path using the target framework
+          local dll_path = vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/' .. target_framework .. '/' .. current_folder .. '.dll', 'file')
+          
+          return dll_path
         end,
       }
     }
