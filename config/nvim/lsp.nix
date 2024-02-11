@@ -22,6 +22,10 @@
           extraOptions = {
             "DotNet:enablePackageRestore" = true;
           };
+          settings = {
+            enableImportCompletion = true;
+            organizeImportsOnFormat = true;
+          };
         };
         prismals.enable = true;
         pylsp.enable = true;
@@ -44,6 +48,7 @@
         maxWidth = 50;
       };
     };
+    cmp-omni.enable = true;
     cmp-nvim-lsp.enable = true;
     nvim-cmp = {
       enable = true;
@@ -59,6 +64,12 @@
         { name = "luasnip"; }
         { name = "path"; }
         { name = "buffer"; }
+        {
+          name = "omni";
+          option = {
+            disable_omnifuncs = [ "v:lua.vim.lsp.omnifunc" ];
+          };
+        }
       ];
     };
   };
