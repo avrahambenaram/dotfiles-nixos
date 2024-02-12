@@ -132,6 +132,17 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".editorconfig".text = ''
+# .editorconfig
+
+[*.{cs,vb}]
+indent_size = 2
+ident_style = space
+tab_width = 2
+
+[*.cs]
+csharp_space_after_cast = true
+    '';
   };
 
   # Home Manager can also manage your environment variables through
