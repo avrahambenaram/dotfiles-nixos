@@ -59,7 +59,9 @@
         maxWidth = 50;
       };
     };
+    cmp-buffer.enable = true;
     cmp-omni.enable = true;
+    cmp-path.enable = true;
     cmp-nvim-lsp.enable = true;
     nvim-cmp = {
       enable = true;
@@ -75,12 +77,7 @@
         { name = "luasnip"; }
         { name = "path"; }
         { name = "buffer"; }
-        {
-          name = "omni";
-          option = {
-            disable_omnifuncs = [ "v:lua.vim.lsp.omnifunc" ];
-          };
-        }
+        { name = "omni"; }
       ];
     };
   };
