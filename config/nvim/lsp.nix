@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
+    formatter-nvim
+  ];
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
@@ -19,13 +22,21 @@
         nixd.enable = true;
         omnisharp = {
           enable = true;
-          extraOptions = {
-            "DotNet:enablePackageRestore" = true;
-          };
-          settings = {
-            enableImportCompletion = true;
-            organizeImportsOnFormat = true;
-          };
+          cmd = [
+            "${pkgs.omnisharp-roslyn}/bin/OmniSharp"
+            "DotNet:enablePackageRestore=true"
+            "FormattingOptions:OrganizeImports=true"
+            "RoslynExtensionsOptions:EnableImportCompletion=true"
+          ];
+          onAttach.function = ''
+          require'formatter'.setup({
+            filetype = {
+              csharp = {
+                -- formatter setup
+              }
+            }
+          })
+          '';
         };
         prismals.enable = true;
         pylsp.enable = true;
