@@ -37,6 +37,9 @@
             }
           })
           '';
+          settings = {
+            enableImportCompletion = true;
+          };
         };
         prismals.enable = true;
         pylsp.enable = true;
