@@ -39,6 +39,7 @@
           '';
           settings = {
             enableImportCompletion = true;
+            organizeImportsOnFormat = true;
           };
         };
         prismals.enable = true;
