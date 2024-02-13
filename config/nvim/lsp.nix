@@ -92,5 +92,10 @@
       action = ":lua vim.lsp.buf.definition()<CR>";
       options.silent = true;
     }
+    {
+      key = "gr";
+      action = ":lua vim.lsp.buf.references()<CR>";
+      options.silent = true;
+    }
   ];
 }
