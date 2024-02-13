@@ -7,12 +7,6 @@
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
-      onAttach = ''
-      lsp.default_keymaps({buffer = bufnr})
-
-      local opts = {buffer = bufnr, remap = false}
-      vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-      '';
       servers = {
         cssls.enable = true;
         eslint.enable = true;
@@ -38,8 +32,8 @@
           })
           '';
           settings = {
-            enableImportCompletion = true;
-            organizeImportsOnFormat = true;
+            enableRoslynAnalyzers = true;
+            analyzeOpenDocumentsOnly = false;
           };
         };
         prismals.enable = true;
@@ -91,6 +85,11 @@
     {
       key = "K";
       action = ":lua vim.lsp.buf.hover()<CR>";
+      options.silent = true;
+    }
+    {
+      key = "gd";
+      action = ":lua vim.lsp.buf.definition()<CR>";
       options.silent = true;
     }
   ];
