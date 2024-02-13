@@ -66,6 +66,7 @@
     cmp-omni.enable = true;
     cmp-path.enable = true;
     cmp-nvim-lsp.enable = true;
+    cmp-zsh.enable = true;
     nvim-cmp = {
       enable = true;
       mapping = {
@@ -81,6 +82,7 @@
         { name = "path"; }
         { name = "buffer"; }
         { name = "omni"; }
+        { name = "zsh"; }
       ];
     };
   };
