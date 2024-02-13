@@ -87,4 +87,11 @@
       ];
     };
   };
+  programs.nixvim.keymaps = [
+    {
+      key = "K";
+      action = ":lua vim.lsp.buf.hover()<CR>";
+      options.silent = true;
+    }
+  ];
 }
