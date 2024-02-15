@@ -12,7 +12,9 @@
       tabstop = 2;
       softtabstop = 2;
       shiftwidth = 2;
+      expandtab = true;
 
+      # Asks for saving file
       confirm = true;
 
       wrap = true;
