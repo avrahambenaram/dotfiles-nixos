@@ -93,7 +93,8 @@
     }
     {
       key = "ga";
-      action = ":lua vim.lsp.buf.code_action()";
+      action = ":lua vim.lsp.buf.code_action()<CR>";
+      options.silent = true;
     }
   ];
 }
