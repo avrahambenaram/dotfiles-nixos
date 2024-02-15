@@ -91,5 +91,9 @@
       action = ":lua vim.lsp.buf.references()<CR>";
       options.silent = true;
     }
+    {
+      key = "ga";
+      action = ":lua vim.lsp.buf.code_action()";
+    }
   ];
 }
