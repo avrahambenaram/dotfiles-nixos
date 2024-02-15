@@ -3,14 +3,6 @@
 let
   theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit config; inherit pkgs; };
   bg-cycle = import ./scripts/hypr/bg-cycle.nix { inherit config; inherit pkgs; };
-  myDotNetEnv = pkgs.dotnetCorePackages.combinePackages [
-    pkgs.dotnetCorePackages.sdk_6_0
-    pkgs.dotnetCorePackages.sdk_8_0
-    pkgs.dotnetCorePackages.runtime_6_0
-    pkgs.dotnetCorePackages.runtime_8_0
-    pkgs.dotnetCorePackages.aspnetcore_6_0
-    pkgs.dotnetCorePackages.aspnetcore_8_0
-  ];
 
   postman = pkgs.callPackage ./pkgs/postman { };
 in
@@ -19,6 +11,7 @@ in
     inputs.nixvim.homeManagerModules.nixvim
 
     ./config/alacritty.nix
+    ./config/dotnet.nix
     ./config/gtk.nix
     ./config/nixpkgs.nix
     ./config/nixvim.nix
@@ -70,18 +63,10 @@ in
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  # Path
-  home.sessionPath = [
-    "$HOME/.dotnet/tools"
-  ];
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     xfce.thunar
-
-    # .NET
-    myDotNetEnv
 
     cliphist
     udiskie
@@ -132,17 +117,6 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".editorconfig".text = ''
-# .editorconfig
-
-[*.{cs,vb}]
-indent_size = 2
-ident_style = space
-tab_width = 2
-
-[*.cs]
-csharp_space_after_cast = true
-    '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -187,7 +161,6 @@ csharp_space_after_cast = true
     BROWSER="vivaldi";
     EDITOR="nvim";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
-    DOTNET_ROOT = "${myDotNetEnv}";
   };
 
   programs.home-manager.enable = true;

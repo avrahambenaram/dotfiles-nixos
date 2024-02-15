@@ -19,8 +19,6 @@
           cmd = [
             "${pkgs.omnisharp-roslyn}/bin/OmniSharp"
             "DotNet:enablePackageRestore=true"
-            "FormattingOptions:OrganizeImports=true"
-            "RoslynExtensionsOptions:EnableImportCompletion=true"
           ];
           onAttach.function = ''
           require'formatter'.setup({
@@ -31,10 +29,6 @@
             }
           })
           '';
-          settings = {
-            enableRoslynAnalyzers = true;
-            analyzeOpenDocumentsOnly = false;
-          };
         };
         prismals.enable = true;
         pylsp.enable = true;

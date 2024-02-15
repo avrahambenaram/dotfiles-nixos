@@ -1,0 +1,24 @@
+{
+	"msbuild": {
+		"loadProjectsOnDemand": false,
+		"EnablePackageAutoRestore": true
+	},
+	"DotNet": {
+		"enablePackageRestore": true
+	},
+	"FormattingOptions": {
+		"EnableEditorConfigSupport": true,
+		"OrganizeImports": true
+	},
+	"RoslynExtensionsOptions": {
+		"enableImportCompletion": true,
+		"enableAnalyzersSupport": true,
+		"inlayHintsOptions": {
+			"forImplicitVariableTypes": false,
+			"enableForTypes": false
+		}
+	},
+	"Sdk": {
+		"IncludePrereleases": true
+	}
+}
