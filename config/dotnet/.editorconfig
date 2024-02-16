@@ -22,5 +22,8 @@ csharp_style_expression_bodied_methods = when_on_single_line
 csharp_style_expression_bodied_operators = when_on_single_line
 csharp_style_expression_bodied_properties = when_on_single_line
 
+# Disable forces to if braces {}
+csharp_prefer_braces = when_multiline
+
 # Allow public accessors to class fields
 dotnet_diagnostic.CA1051.severity = none
