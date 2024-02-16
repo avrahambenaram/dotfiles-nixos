@@ -5,6 +5,21 @@ indent_size = 2
 ident_style = space
 tab_width = 2
 
+# Doesnt need mark class members as static
+dotnet_diagnostic.CA1822.severity = none
+
+# Allow public accessors to class fields
+dotnet_diagnostic.CA1051.severity = none
+
+# Doesnt specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# Remove expression is never used
+dotnet_diagnostic.IDE0058.severity = none
+
+# Doesnt need to use ordinal string comparison
+dotnet_diagnostic.CA1309.severity = none
+
 [*.cs]
 csharp_space_after_cast = true
 
@@ -25,5 +40,3 @@ csharp_style_expression_bodied_properties = when_on_single_line
 # Disable forces to if braces {}
 csharp_prefer_braces = when_multiline
 
-# Allow public accessors to class fields
-dotnet_diagnostic.CA1051.severity = none
