@@ -10,12 +10,13 @@ in
   programs.nixvim.plugins.dap = {
     enable = true;
     signs.dapBreakpoint.text = "🛑";
+    extensions.dap-ui.enable = true;
   };
   programs.nixvim.keymaps = [
     {
       mode = ["n"];
-      key = "<leader>dr";
-      action = ":DapToggleRepl<CR>";
+      key = "<leader>D";
+      action = ":lua require('dapui').toggle()<CR>";
       options.silent = true;
     }
     {
@@ -58,12 +59,6 @@ in
       mode = ["n"];
       key = "<leader>dt";
       action = ":DapTerminate<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<leader>ds";
-      action = ":lua require'dap.ui.widgets'.sidebar(require'dap.ui.widgets'.scopes).open()<CR>";
       options.silent = true;
     }
     {
