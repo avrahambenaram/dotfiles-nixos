@@ -61,11 +61,12 @@
       mapping = {
         "<CR>" = "cmp.mapping.confirm({ select = false })";
         "<C-Space>" = "cmp.mapping.complete()";
-        "<C-j>" = "cmp.mapping.select_next_item()";
-        "<C-k>" = "cmp.mapping.select_prev_item()";
+        "<Tab>" = "cmp.mapping.select_next_item()";
+        "<S-Tab>" = "cmp.mapping.select_prev_item()";
       };
       autoEnableSources = true;
       sources = [
+        { name = "cmp_tabnine"; }
         { name = "nvim_lsp"; }
         { name = "luasnip"; }
         { name = "path"; }
