@@ -22,17 +22,5 @@
       key = "<C-p>";
       action = "<Plug>luasnip-prev-choice";
     }
-    {
-      mode = ["n" "v" "i"];
-      key = "<C-s>1";
-      action = ":lua require('luasnip').jump(1)<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n" "v" "i"];
-      key = "<C-s>2";
-      action = ":lua require('luasnip').jump(-1)<CR>";
-      options.silent = true;
-    }
   ];
 }
