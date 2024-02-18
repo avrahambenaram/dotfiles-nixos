@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins.lualine = {
     enable = true;
-    theme = "jellybeans";
+    theme = "auto";
     globalstatus = true;
     winbar.lualine_c = [
       {
