@@ -13,6 +13,7 @@
     ./nvim/highlight.nix
     ./nvim/lsp.nix
     ./nvim/lualine.nix
+    ./nvim/navbuddy.nix
     ./nvim/navic.nix
     ./nvim/neotest.nix
     ./nvim/options.nix
