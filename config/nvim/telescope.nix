@@ -7,9 +7,17 @@
       };
     };
     keymaps = {
+      # File navigation
       "<C-p>" = "git_files";
       "<leader>pf" = "find_files";
       "<leader>ps" = "live_grep";
+
+      # Lsp
+      "gd" = "lsp_definitions";
+      "gr" = "lsp_references";
+
+      # Colorscheme
+      "sp" = "colorscheme";
     };
   };
 }

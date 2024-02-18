@@ -109,16 +109,6 @@
       options.silent = true;
     }
     {
-      key = "gd";
-      action = ":Telescope lsp_definitions<CR>";
-      options.silent = true;
-    }
-    {
-      key = "gr";
-      action = ":Telescope lsp_references<CR>";
-      options.silent = true;
-    }
-    {
       key = "ga";
       action = ":lua vim.lsp.buf.code_action()<CR>";
       options.silent = true;
