@@ -44,6 +44,10 @@ in
             name = "rainglow";
             src = inputs.rainglow;
           };
+          vscode-nvim = prev.vimUtils.buildVimPlugin {
+            name = "vscode";
+            src = inputs.vscode-nvim;
+          };
         };
       })
     ];

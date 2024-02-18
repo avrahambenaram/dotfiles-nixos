@@ -390,7 +390,8 @@
         "miasma-nvim": "miasma-nvim",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
-        "rainglow": "rainglow"
+        "rainglow": "rainglow",
+        "vscode-nvim": "vscode-nvim"
       }
     },
     "systems": {
@@ -450,6 +451,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vscode-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706782101,
+        "narHash": "sha256-dAZy4XWGljMn+FwvkZSHCL1neGRPLHVn/L0jSLmRAdM=",
+        "owner": "Mofiqul",
+        "repo": "vscode.nvim",
+        "rev": "380c1068612b1bfbe35d70a4f2e58be5030a0707",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mofiqul",
+        "repo": "vscode.nvim",
         "type": "github"
       }
     },

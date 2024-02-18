@@ -32,6 +32,8 @@
     miasma-nvim.flake = false;
     rainglow.url = "github:rainglow/vim";
     rainglow.flake = false;
+    vscode-nvim.url = "github:Mofiqul/vscode.nvim";
+    vscode-nvim.flake = false;
 
     # Nixvim
     nixvim = {

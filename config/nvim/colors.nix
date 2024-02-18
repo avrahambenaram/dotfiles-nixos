@@ -9,6 +9,7 @@
     rainglow
     rose-pine
     sonokai
+    vscode-nvim
   ];
 
   programs.nixvim.extraConfigLuaPre = ''
