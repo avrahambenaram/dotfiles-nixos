@@ -110,12 +110,12 @@
     }
     {
       key = "gd";
-      action = ":lua vim.lsp.buf.definition()<CR>";
+      action = ":Telescope lsp_definitions<CR>";
       options.silent = true;
     }
     {
       key = "gr";
-      action = ":lua vim.lsp.buf.references()<CR>";
+      action = ":Telescope lsp_references<CR>";
       options.silent = true;
     }
     {
