@@ -91,7 +91,7 @@ in
       command = "node",
       args = {"${dapJsServer}/src/dapDebugServer.js", "${"$"}{port}"},
     },
-    ["coreclr"] = {
+    ["netcoredbg"] = {
       type = 'executable',
       command = '${pkgs.netcoredbg}/bin/netcoredbg',
       args = {'--interpreter=vscode'}
@@ -134,7 +134,7 @@ in
     },
     ["cs"] = {
       {
-        type = "coreclr",
+        type = "netcoredbg",
         name = "launch - netcoredbg",
         request = "launch",
         program = function()
