@@ -13,6 +13,7 @@
     ./nvim/highlight.nix
     ./nvim/lsp.nix
     ./nvim/lualine.nix
+    ./nvim/navic.nix
     ./nvim/options.nix
     ./nvim/presence.nix # Optional
     ./nvim/snippets.nix
