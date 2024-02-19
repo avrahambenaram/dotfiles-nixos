@@ -25,7 +25,7 @@ in
             }
           ];
           position = "left";
-          size = 50;
+          size = 55;
         }
         {
           elements = [
@@ -39,7 +39,7 @@ in
             }
           ];
           position = "bottom";
-          size = 20;
+          size = 10;
         }
       ];
     };
