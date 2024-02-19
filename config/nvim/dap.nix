@@ -10,7 +10,39 @@ in
   programs.nixvim.plugins.dap = {
     enable = true;
     signs.dapBreakpoint.text = "🛑";
-    extensions.dap-ui.enable = true;
+    extensions.dap-ui = {
+      enable = true;
+      layouts = [
+        {
+          elements = [
+            {
+              id = "scopes";
+              size = 0.5;
+            }
+            {
+              id = "stacks";
+              size = 0.5;
+            }
+          ];
+          position = "left";
+          size = 50;
+        }
+        {
+          elements = [
+            {
+              id = "repl";
+              size = 0.5;
+            }
+            {
+              id = "breakpoints";
+              size = 0.5;
+            }
+          ];
+          position = "bottom";
+          size = 20;
+        }
+      ];
+    };
   };
   programs.nixvim.keymaps = [
     {
