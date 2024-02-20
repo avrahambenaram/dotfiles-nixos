@@ -122,9 +122,6 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
-  # Ozone wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   # Permissible user shells
   environment.shells = with pkgs; [
     bash
@@ -268,6 +265,11 @@
     "steam-original"
     "steam-run"
   ];
+
+  programs.java = {
+    enable = true;
+    binfmt = true;
+  };
 
   # Tor
   services.tor = {
