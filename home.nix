@@ -32,26 +32,24 @@ in
   };
 
   # Neovim
-  nixpkgs = {
-    overlays = [
-      (final: prev: {
-        vimPlugins = prev.vimPlugins // {
-          miasma-nvim = prev.vimUtils.buildVimPlugin {
-            name = "miasma";
-            src = inputs.miasma-nvim;
-          };
-          rainglow = prev.vimUtils.buildVimPlugin {
-            name = "rainglow";
-            src = inputs.rainglow;
-          };
-          vscode-nvim = prev.vimUtils.buildVimPlugin {
-            name = "vscode";
-            src = inputs.vscode-nvim;
-          };
+  nixpkgs.overlays = [
+    (final: prev: {
+      vimPlugins = prev.vimPlugins // {
+        miasma-nvim = prev.vimUtils.buildVimPlugin {
+          name = "miasma";
+          src = inputs.miasma-nvim;
         };
-      })
-    ];
-  };
+        rainglow = prev.vimUtils.buildVimPlugin {
+          name = "rainglow";
+          src = inputs.rainglow;
+        };
+        vscode-nvim = prev.vimUtils.buildVimPlugin {
+          name = "vscode";
+          src = inputs.vscode-nvim;
+        };
+      };
+    })
+  ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
