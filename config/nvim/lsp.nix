@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <nixpkgs-unstable> {};
+in
 {
   programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
     formatter-nvim
@@ -17,7 +20,7 @@
         omnisharp = {
           enable = true;
           cmd = [
-            "${pkgs.omnisharp-roslyn}/bin/OmniSharp"
+            "${unstable.omnisharp-roslyn}/bin/OmniSharp"
             "DotNet:enablePackageRestore=true"
           ];
           onAttach.function = ''

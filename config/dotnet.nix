@@ -2,15 +2,16 @@
 
 let
   myDotNetEnv = pkgs.dotnetCorePackages.combinePackages [
-    pkgs.dotnetCorePackages.sdk_6_0
-    pkgs.dotnetCorePackages.runtime_6_0
-    pkgs.dotnetCorePackages.aspnetcore_6_0
+    pkgs.dotnetCorePackages.sdk_8_0
+    pkgs.dotnetCorePackages.runtime_8_0
+    pkgs.dotnetCorePackages.aspnetcore_8_0
   ];
+  unstable = import <nixpkgs-unstable> {};
 in
 {
   home.packages = [
     myDotNetEnv
-    pkgs.omnisharp-roslyn
+    unstable.omnisharp-roslyn
   ];
   home.sessionPath = [
     "$HOME/.dotnet/tools"
