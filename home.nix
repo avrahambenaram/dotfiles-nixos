@@ -31,6 +31,11 @@ in
     };
   };
 
+  # Unfree
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+    "tabnine"
+  ];
+
   # Neovim
   nixpkgs.overlays = [
     (final: prev: {
