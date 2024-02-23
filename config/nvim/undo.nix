@@ -1,7 +1,9 @@
 {
   programs.nixvim.plugins.undotree = {
     enable = true;
-    focusOnToggle = true;
+    settings = {
+      FocusOnToggle = true;
+    };
   };
   programs.nixvim.keymaps = [
     {
