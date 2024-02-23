@@ -6,12 +6,11 @@ let
     pkgs.dotnetCorePackages.runtime_8_0
     pkgs.dotnetCorePackages.aspnetcore_8_0
   ];
-  unstable = import <nixpkgs-unstable> {};
 in
 {
   home.packages = [
     myDotNetEnv
-    unstable.omnisharp-roslyn
+    pkgs.omnisharp-roslyn
   ];
   home.sessionPath = [
     "$HOME/.dotnet/tools"
