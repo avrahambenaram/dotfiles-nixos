@@ -3,6 +3,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,19 +38,25 @@
 
     # Nixvim
     nixvim = {
-      # url = "github:nix-community/nixvim";
-      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
-      url = "github:nix-community/nixvim/nixos-23.11";
+      url = "github:nix-community/nixvim";
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, hyprland-plugins, hy3, hycov, ... } @ inputs: {
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, hyprland, hyprland-plugins, hy3, hycov, ... } @ inputs:
+  let
+    system = "x86_64-linux";
+    overlay-stable = final: prev: {
+      stable = nixpkgs-stable.legacyPackages.${prev.system};
+    };
+  in
+  {
     homeConfigurations."avraham@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
           modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
             ./home.nix
             hyprland.homeManagerModules.default
 
