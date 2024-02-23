@@ -45,7 +45,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, hy3, hycov, ... } @ inputs: {
+  outputs = { nixpkgs, home-manager, hyprland, hyprland-plugins, hy3, hycov, ... } @ inputs: {
     homeConfigurations."avraham@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
@@ -60,8 +60,8 @@
                 plugins = [
                   hy3.packages.x86_64-linux.hy3
                   hycov.packages.x86_64-linux.hycov
-                  inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
-                  inputs.hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
+                  hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
+                  hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
                 ];
               };
             }
