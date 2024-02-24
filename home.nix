@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 let
-  theme-switcher = import ./scripts/hypr/theme-switcher.nix { inherit config; inherit pkgs; };
-  bg-cycle = import ./scripts/hypr/bg-cycle.nix { inherit config; inherit pkgs; };
+  theme-switcher = import ./config/hypr/scripts/theme-switcher.nix { inherit config; inherit pkgs; };
+  bg-cycle = import ./config/hypr/scripts/bg-cycle.nix { inherit config; inherit pkgs; };
 
   postman = pkgs.callPackage ./pkgs/postman { };
 in
@@ -75,13 +75,9 @@ in
   home.packages = with pkgs; [
     xfce.thunar
 
-    cliphist
     udiskie
     swaynotificationcenter
     swww
-    waybar
-    wl-clipboard
-    wl-clip-persist
     wofi
     nur.repos.avrahambenaram.hyprpicker
 
