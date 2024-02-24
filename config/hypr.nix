@@ -2,14 +2,14 @@
 
 {
   imports = [
-    ./clipboard.nix
-    ./input.nix
-    ./keybindings.nix
-    ./misc.nix
-    ./mount.nix
-    ./night-light.nix
-    ./notification.nix
-    ./xwayland.nix
+    ./hypr/clipboard.nix
+    ./hypr/input.nix
+    ./hypr/keybindings.nix
+    ./hypr/misc.nix
+    ./hypr/mount.nix
+    ./hypr/night-light.nix
+    ./hypr/notification.nix
+    ./hypr/xwayland.nix
   ];
   wayland.windowManager.hyprland.settings = {
     source = [

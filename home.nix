@@ -14,6 +14,7 @@ in
     ./config/dotnet.nix
     ./config/git.nix
     ./config/gtk.nix
+    ./config/hypr.nix
     ./config/nixpkgs.nix
     ./config/nixvim.nix
     ./config/nwg-bar.nix
@@ -24,7 +25,6 @@ in
     ./config/wofi.nix
     ./config/zathura.nix
     ./config/zsh.nix
-    ./hypr
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
