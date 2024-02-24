@@ -1,4 +1,10 @@
+{ config, pkgs, ... }:
+
 {
+  home.packages = with pkgs; [
+    swaynotificationcenter
+  ];
+
   wayland.windowManager.hyprland.settings = {
     "exec-once" = [
 	  "swaync"

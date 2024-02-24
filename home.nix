@@ -75,7 +75,6 @@ in
   home.packages = with pkgs; [
     xfce.thunar
 
-    swaynotificationcenter
     swww
     wofi
     nur.repos.avrahambenaram.hyprpicker
