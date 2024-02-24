@@ -1,2 +1,2 @@
 config/git.nix
-.spotifyd.nix
+config/spotifyd.nix

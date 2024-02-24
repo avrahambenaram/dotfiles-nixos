@@ -18,6 +18,7 @@ in
     ./config/nixvim.nix
     ./config/nwg-bar.nix
     ./config/ranger.nix
+    ./config/spotifyd.nix
     ./config/tmux.nix
     ./config/waybar.nix
     ./config/wofi.nix
@@ -173,11 +174,6 @@ in
   };
 
   programs.home-manager.enable = true;
-
-  services.spotifyd = {
-    enable = true;
-    settings = import ./.spotifyd.nix;
-  }; 
 
   xdg.enable = true;
 } 

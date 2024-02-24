@@ -1,8 +1,0 @@
-{
-  global = {
-	username = "email or username";
-	password = "your password";
-	device_name = "spotifyd@nixos";
-	backend = "pulseaudio";
-  };
-}
