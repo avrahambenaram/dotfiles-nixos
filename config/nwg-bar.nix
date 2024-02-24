@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    nwg-bar
+  ];
+
   xdg.configFile = {
     "nwg-bar/bar.json".text = ''
       [
