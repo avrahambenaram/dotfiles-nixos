@@ -75,7 +75,6 @@ in
   home.packages = with pkgs; [
     xfce.thunar
 
-    udiskie
     swaynotificationcenter
     swww
     wofi
