@@ -27,6 +27,15 @@
     ./nvim/undo.nix
   ];
 
+  home.shellAliases = {
+    vi="nvim --listen /tmp/nvimsocket";
+    vim="nvim --listen /tmp/nvimsocket";
+    nvim="nvim --listen /tmp/nvimsocket";
+  };
+  home.sessionVariables = {
+    EDITOR="nvim";
+  };
+
   programs.nixvim = {
     enable = true;
     extraPlugins = with pkgs.vimPlugins; [

@@ -162,14 +162,9 @@ in
     waydroidRotation="sudo waydroid shell wm set-user-rotation lock";
     waydroidWidth="waydroid prop set persist.waydroid.width";
     waydroidHeight="waydroid prop set persist.waydroid.height";
-
-    # Neovim
-    vi="nvim --listen /tmp/nvimsocket";
-    vim="nvim --listen /tmp/nvimsocket";
   };
   home.sessionVariables = {
     BROWSER="vivaldi";
-    EDITOR="nvim";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
   };
 
