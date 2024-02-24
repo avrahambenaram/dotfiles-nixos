@@ -1,9 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 let
-  theme-switcher = import ./config/hypr/scripts/theme-switcher.nix { inherit config; inherit pkgs; };
-  bg-cycle = import ./config/hypr/scripts/bg-cycle.nix { inherit config; inherit pkgs; };
-
   postman = pkgs.callPackage ./pkgs/postman { };
 in
 {
@@ -74,10 +71,6 @@ in
 
   home.packages = with pkgs; [
     xfce.thunar
-
-    # Scripts
-    theme-switcher
-    bg-cycle
 
     postman
     maven
