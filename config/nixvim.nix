@@ -35,6 +35,9 @@
   home.sessionVariables = {
     EDITOR="nvim";
   };
+  home.packages = with pkgs; [
+    neovim-remote
+  ];
 
   programs.nixvim = {
     enable = true;

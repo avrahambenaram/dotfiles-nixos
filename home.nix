@@ -94,9 +94,6 @@ in
     wlr-randr
     swaylock-effects
 
-    # Neovim remote
-    neovim-remote
-
     # Night light
     go-sct
 
