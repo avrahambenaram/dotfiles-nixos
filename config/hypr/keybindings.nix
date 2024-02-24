@@ -17,6 +17,10 @@ in
     grimblast
     sway-contrib.grimshot
     slurp
+
+    # Color picker
+    nur.repos.avrahambenaram.hyprpicker
+    wl-clipboard
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -78,7 +82,7 @@ in
 		", PRINT, exec, grimshot --notify save screen"
 		"SHIFT, PRINT, exec, ${hypr-screenshot}/bin/hypr-screenshot"
 
-        # Color picker (requires hyprpicker and wl-clipboard)
+    # Color picker (requires hyprpicker and wl-clipboard)
 		"$mod, Z, exec, hyprpicker -a"
 
 		# Theme switcher

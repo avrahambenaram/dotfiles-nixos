@@ -75,8 +75,6 @@ in
   home.packages = with pkgs; [
     xfce.thunar
 
-    nur.repos.avrahambenaram.hyprpicker
-
     # Scripts
     theme-switcher
     bg-cycle
