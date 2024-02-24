@@ -19,6 +19,9 @@
     nwg-displays
     wlr-randr
     swaylock-effects
+
+    # Wallpaper
+    swww
   ];
 
   wayland.windowManager.hyprland.settings = {
