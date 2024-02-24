@@ -4,11 +4,9 @@
   programs.nixvim.plugins = {
     nvim-cmp.snippet.expand = "luasnip";
     cmp_luasnip.enable = true;
+    friendly-snippets.enable = true;
     luasnip = {
       enable = true;
-      fromVscode = [{
-        paths = "${pkgs.vimPlugins.friendly-snippets}";
-      }];
     };
   };
   programs.nixvim.keymaps = [
