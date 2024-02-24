@@ -22,6 +22,9 @@
 
     # Wallpaper
     swww
+
+    # Menus
+    wofi
   ];
 
   wayland.windowManager.hyprland.settings = {

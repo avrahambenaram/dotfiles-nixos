@@ -75,7 +75,6 @@ in
   home.packages = with pkgs; [
     xfce.thunar
 
-    wofi
     nur.repos.avrahambenaram.hyprpicker
 
     # Scripts
