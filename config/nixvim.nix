@@ -45,13 +45,6 @@
       # Others
       nvim-web-devicons # Optional
     ];
-    extraPackages = with pkgs; [
-      ripgrep
-      lua-language-server
-      rnix-lsp
-
-      xclip
-    ];
     plugins.nix.enable = true;
   };
 }

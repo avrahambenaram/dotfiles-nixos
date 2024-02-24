@@ -1,4 +1,9 @@
+{ config, pkgs, ... }:
+
 {
+  programs.nixvim.extraPackages = with pkgs; [
+    ripgrep
+  ];
   programs.nixvim.plugins.telescope = {
     enable = true;
     extraOptions = {

@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  programs.nixvim.extraPackages = with pkgs; [
+    lua-language-server
+    rnix-lsp
+  ];
   programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
     formatter-nvim
   ];
