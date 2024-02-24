@@ -1,31 +1,49 @@
 { config, pkgs, ... }:
 
+let
+  generateClosingKey = closed:
+    {
+      escape = false;
+      close = true;
+      pair = "${closed}";
+    };
+  generateEscapingKey = closed:
+    {
+      escape = true;
+      close = false;
+      pair = "${closed}";
+    };
+  generateClosingEscapingKey = closed:
+    {
+      escape = true;
+      close = true;
+      pair = "${closed}";
+    };
+in
 {
-  programs.nixvim.extraPlugins = [pkgs.vimPlugins.autoclose-nvim];
-  programs.nixvim.extraConfigLua = ''
-    require("autoclose").setup {
-       keys = {
-          ["("] = { escape = false, close = true, pair = "()" },
-          ["["] = { escape = false, close = true, pair = "[]" },
-          ["{"] = { escape = false, close = true, pair = "{}" },
-          ["<"] = { escape = false, close = true, pair = "<>", enabled_filetypes = { "markdown", "html" }},
+  programs.nixvim.plugins.autoclose = {
+    enable = true;
+    keys = {
+      "(" = generateClosingKey "()";
+      "[" = generateClosingKey "[]";
+      "{" = generateClosingKey "{}";
+      "<" = generateClosingKey "<>" // { enabled_filetypes = [ "markdown" "html" ]; };
 
-          [">"] = { escape = true, close = false, pair = "<>" },
-          [")"] = { escape = true, close = false, pair = "()" },
-          ["]"] = { escape = true, close = false, pair = "[]" },
-          ["}"] = { escape = true, close = false, pair = "{}" },
+      ">" = generateEscapingKey "<>";
+      ")" = generateEscapingKey "()";
+      "]" = generateEscapingKey "[]";
+      "}" = generateEscapingKey "{}";
 
-          ['"'] = { escape = true, close = true, pair = '""' },
-          ["'"] = { escape = true, close = true, pair = "${"''"}" },
-          ["`"] = { escape = true, close = true, pair = "``" },
-       },
-       options = {
-          disabled_filetypes = { "text" },
-          disable_when_touch = false,
-          touch_regex = "[%w(%[{]",
-          pair_spaces = false,
-          auto_indent = true,
-       },
-    }
-  '';
+      "\"" = generateClosingEscapingKey "\"\"";
+      "'" = generateClosingEscapingKey "''";
+      "`" = generateClosingEscapingKey "``";
+    };
+    options = {
+      autoIndent = true;
+      pairSpaces = false;
+      touchRegex = "[%w(%[{]";
+      disableWhenTouch = false;
+      disabledFiletypes = [ "text" ];
+    };
+  };
 }
