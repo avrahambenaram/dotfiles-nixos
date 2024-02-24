@@ -94,9 +94,6 @@ in
     wlr-randr
     swaylock-effects
 
-    # Night light
-    go-sct
-
     # Scripts
     theme-switcher
     bg-cycle
