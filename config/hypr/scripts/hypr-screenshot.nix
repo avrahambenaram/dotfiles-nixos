@@ -8,15 +8,15 @@ selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --style=${config.xdg.c
 
 case $selected in
   active)
-    grimshot --notify save active;;
+    ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save active;;
   screen)
-    grimshot --notify save screen;;
+    ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save screen;;
   output)
-    grimshot --notify save output;;
+    ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save output;;
   area)
-    grimshot --notify save area;;
+    ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save area;;
   window)
-    grimshot --notify save window;;
+    ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save window;;
 esac
 
 ''
