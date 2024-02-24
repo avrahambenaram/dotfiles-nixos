@@ -5,10 +5,10 @@ let
     inherit config;
     inherit pkgs;
   };
-  bg-selector = import ../scripts/hypr/bg-selector.nix scriptsParams;
-  bg-cycle = import ../scripts/hypr/bg-cycle.nix scriptsParams;
-  hypr-screenshot = import ../scripts/hypr/hypr-screenshot.nix scriptsParams;
-  theme-selector = import ../scripts/hypr/theme-selector.nix scriptsParams;
+  bg-selector = import ./scripts/bg-selector.nix scriptsParams;
+  bg-cycle = import ./scripts/bg-cycle.nix scriptsParams;
+  hypr-screenshot = import ./scripts/hypr-screenshot.nix scriptsParams;
+  theme-selector = import ./scripts/theme-selector.nix scriptsParams;
 in
 {
   wayland.windowManager.hyprland.settings = {
