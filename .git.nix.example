@@ -1,5 +1,0 @@
-{
-  enable = true;
-  userName  = "Your git username";
-  userEmail = "Your git email";
-}

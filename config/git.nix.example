@@ -1,0 +1,10 @@
+{
+  programs.git = {
+    enable = true;
+    userName  = "Your git username";
+    userEmail = "Your git email";
+  };
+  programs.git-credential-oauth.enable = true;
+
+  programs.gh.enable = true;
+}

@@ -12,6 +12,7 @@ in
 
     ./config/alacritty.nix
     ./config/dotnet.nix
+    ./config/git.nix
     ./config/gtk.nix
     ./config/nixpkgs.nix
     ./config/nixvim.nix
@@ -172,11 +173,6 @@ in
   };
 
   programs.home-manager.enable = true;
-
-  programs.git = import ./.git.nix;
-  programs.git-credential-oauth.enable = true;
-
-  programs.gh.enable = true;
 
   services.spotifyd = {
     enable = true;
