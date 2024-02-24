@@ -11,6 +11,14 @@ let
   theme-selector = import ./scripts/theme-selector.nix scriptsParams;
 in
 {
+  home.packages = with pkgs; [
+    # Screenshot
+    grim
+    grimblast
+    sway-contrib.grimshot
+    slurp
+  ];
+
   wayland.windowManager.hyprland.settings = {
 	"$mod" = "SUPER";
 	"$left" = "H";

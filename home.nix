@@ -81,19 +81,6 @@ in
     wofi
     nur.repos.avrahambenaram.hyprpicker
 
-    # Screenshot
-    grim
-    grimblast
-    sway-contrib.grimshot
-    slurp
-
-    # Complementary Apps
-    nwg-look
-    nwg-bar
-    nwg-displays
-    wlr-randr
-    swaylock-effects
-
     # Scripts
     theme-switcher
     bg-cycle

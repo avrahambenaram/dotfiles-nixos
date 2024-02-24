@@ -11,6 +11,16 @@
     ./hypr/notification.nix
     ./hypr/xwayland.nix
   ];
+
+  home.packages = with pkgs; [
+    # Complementary Apps
+    nwg-look
+    nwg-bar
+    nwg-displays
+    wlr-randr
+    swaylock-effects
+  ];
+
   wayland.windowManager.hyprland.settings = {
     source = [
       "${config.xdg.configHome}/hypr/theme.conf"
