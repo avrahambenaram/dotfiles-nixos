@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  generateDirectionKeys = import ./utils/generateDirectionKeys.nix;
   scriptsParams = {
     inherit config;
     inherit pkgs;
@@ -30,6 +31,17 @@ in
 	"$up" = "K";
 	"$down" = "J";
 	bind =
+    # Move focus with mod + HJKL
+    (generateDirectionKeys (key: direction: "$mod, ${key}, hy3:movefocus, ${direction}"))
+    ++
+
+    # Move windows with mod + HJKL
+    (generateDirectionKeys (key: direction: "$mod SHIFT, ${key}, hy3:movewindow, ${direction}"))
+    ++
+
+    # Hycov
+    (generateDirectionKeys (key: direction: "ALT, ${key}, hycov:movefocus, ${direction}"))
+    ++
 	  [
     "$mod, Q, killactive"
 		"$mod, C, exit"
@@ -41,18 +53,6 @@ in
     # Special workspace
     "$mod SHIFT, minus, movetoworkspace, special"
     "$mod, minus, togglespecialworkspace"
-
-		# Move focus with mod + HJKL
-		"$mod, $left, hy3:movefocus, l"
-		"$mod, $right, hy3:movefocus, r"
-		"$mod, $up, hy3:movefocus, u"
-		"$mod, $down, hy3:movefocus, d"
-
-		# Move windows with mod + HJKL
-		"$mod SHIFT, $left, hy3:movewindow, l"
-		"$mod SHIFT, $right, hy3:movewindow, r"
-		"$mod SHIFT, $up, hy3:movewindow, u"
-		"$mod SHIFT, $down, hy3:movewindow, d"
 
 		# Groups tabbed
 		"$mod, B, hy3:makegroup, h"
@@ -69,7 +69,7 @@ in
 		"$mod, F, fullscreen"
 		"$mod, Tab, bringactivetotop"
 
-        # Scroll through existing workspaces with mainMod + scroll
+    # Scroll through existing workspaces with mainMod + scroll
 		"$mod, mouse_down, workspace, e+1"
 		"$mod, mouse_up, workspace, e-1"
 
@@ -93,10 +93,6 @@ in
     "$mod, Y, exec, ${bg-cycle}/bin/bg-cycle" # Bg cycle
 
     # Hycov
-    "ALT, $left, hycov:movefocus, l"
-    "ALT, $right, hycov:movefocus, r"
-    "ALT, $up, hycov:movefocus, u"
-    "ALT, $down, hycov:movefocus, d"
     "$mod, tab, hycov:toggleoverview"
 	  ]
 	  ++ (
