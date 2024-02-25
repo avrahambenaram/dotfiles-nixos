@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  generateKeymap = import ./utils/generateKeymap.nix;
   dapJsServer = builtins.fetchTarball {
     url = "https://github.com/microsoft/vscode-js-debug/releases/download/v1.86.1/js-debug-dap-v1.86.1.tar.gz";
     name = "vscode-js-debug";
@@ -45,60 +46,15 @@ in
     };
   };
   programs.nixvim.keymaps = [
-    {
-      mode = ["n"];
-      key = "<leader>D";
-      action = ":lua require('dapui').toggle()<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<leader>db";
-      action = ":DapToggleBreakpoint<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<F3>";
-      action = ":DapContinue<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<F4>";
-      action = ":DapStepOver<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<F10>";
-      action = ":lua require'dap'.step_back()<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<F11>";
-      action = ":DapStepInto<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<F12>";
-      action = ":DapStepOut<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<leader>dt";
-      action = ":DapTerminate<CR>";
-      options.silent = true;
-    }
-    {
-      mode = ["n"];
-      key = "<leader>dh";
-      action = ":lua require'dap.ui.widgets'.hover()<CR>";
-      options.silent = true;
-    }
+    (generateKeymap "n" "<leader>D" ":lua require('dapui').toggle()<CR>")
+    (generateKeymap "n" "<leader>db" ":DapToggleBreakpoint<CR>")
+    (generateKeymap "n" "<F3>" ":DapContinue<CR>")
+    (generateKeymap "n" "<F4>" ":DapStepOver<CR>")
+    (generateKeymap "n" "<F10>" ":lua require'dap'.step_back()<CR>")
+    (generateKeymap "n" "<F11>" ":DapStepInto<CR>")
+    (generateKeymap "n" "<F12>" ":DapStepOut<CR>")
+    (generateKeymap "n" "<leader>dt" ":DapTerminate<CR>")
+    (generateKeymap "n" "<leader>dh" ":lua require'dap.ui.widgets'.hover()<CR>")
   ];
 
   programs.nixvim.extraConfigLua = ''

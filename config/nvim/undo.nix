@@ -1,3 +1,6 @@
+let
+  generateKeymap = import ./utils/generateKeymap.nix;
+in
 {
   programs.nixvim.plugins.undotree = {
     enable = true;
@@ -6,11 +9,6 @@
     };
   };
   programs.nixvim.keymaps = [
-    {
-      mode = "n";
-      key = "<leader>u";
-      action = ":UndotreeToggle<CR>";
-      options.silent = true;
-    }
+    (generateKeymap "n" "<leader>u" ":UndotreeToggle<CR>")
   ];
 }

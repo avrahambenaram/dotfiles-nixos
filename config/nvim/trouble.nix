@@ -1,23 +1,11 @@
+let
+  generateKeymap = import ./utils/generateKeymap.nix;
+in
 {
   programs.nixvim.plugins.trouble.enable = true;
   programs.nixvim.keymaps = [
-    {
-      mode = "n";
-      key = "<leader>xw";
-      action = ":lua (function() require('trouble').toggle('workspace_diagnostics') end)()<CR>";
-      options.silent = true;
-    }
-    {
-      mode = "n";
-      key = "<leader>xd";
-      action = ":lua (function() require('trouble').toggle('document_diagnostics') end)()<CR>";
-      options.silent = true;
-    }
-    {
-      mode = "n";
-      key = "<leader>xq";
-      action = ":TroubleToggle quickfix<cr>";
-      options.silent = true;
-    }
+    (generateKeymap "n" "<leader>xw" ":lua (function() require('trouble').toggle('workspace_diagnostics') end)()<CR>")
+    (generateKeymap "n" "<leader>xd" ":lua (function() require('trouble').toggle('document_diagnostics') end)()<CR>")
+    (generateKeymap "n" "<leader>xq" ":TroubleToggle quickfix<cr>")
   ];
 }

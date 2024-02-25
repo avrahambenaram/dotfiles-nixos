@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  generateKeymap = import ./utils/generateKeymap.nix;
+in
 {
   programs.nixvim = {
     extraPackages = with pkgs; [
@@ -10,11 +13,7 @@
       register = "unnamedplus";
     };
     keymaps = [
-      {
-        key = "<C-y>";
-        action = "\"+y";
-        options.silent = true;
-      }
+      (generateKeymap ["n" "v"] "<C-y>" "\"+y")
     ];
   };
 }

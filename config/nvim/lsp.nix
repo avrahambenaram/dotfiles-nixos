@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  generateKeymap = import ./utils/generateKeymap.nix;
+in
 {
   programs.nixvim.extraPackages = with pkgs; [
     lua-language-server
@@ -107,16 +110,8 @@
     };
   };
   programs.nixvim.keymaps = [
-    {
-      key = "K";
-      action = ":lua vim.lsp.buf.hover()<CR>";
-      options.silent = true;
-    }
-    {
-      key = "ga";
-      action = ":lua vim.lsp.buf.code_action()<CR>";
-      options.silent = true;
-    }
+    (generateKeymap "n" "K" ":lua vim.lsp.buf.hover()<CR>")
+    (generateKeymap ["n" "v"] "ga" ":lua vim.lsp.buf.code_action()<CR>")
   ];
   programs.nixvim.extraConfigLua = ''
 local has_words_before = function()

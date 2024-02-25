@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  generateKeymap = import ./utils/generateKeymap.nix;
+in
 {
   programs.nixvim.plugins = {
     nvim-cmp.snippet.expand = "luasnip";
@@ -10,15 +13,7 @@
     };
   };
   programs.nixvim.keymaps = [
-    {
-      mode = ["i" "s"];
-      key = "<C-n>";
-      action = "<Plug>luasnip-next-choice";
-    }
-    {
-      mode = ["i" "s"];
-      key = "<C-p>";
-      action = "<Plug>luasnip-prev-choice";
-    }
+    (generateKeymap ["i" "s"] "<C-n>" "<Plug>luasnip-next-choice")
+    (generateKeymap ["i" "s"] "<C-p>" "<Plug>luasnip-prev-choice")
   ];
 }

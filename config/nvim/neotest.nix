@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  generateKeymap = import ./utils/generateKeymap.nix;
+in
 {
   programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
     neotest
@@ -22,15 +25,7 @@ require("neotest").setup({
 })
   '';
   programs.nixvim.keymaps = [
-    {
-      key = "<leader>dn";
-      action = ":lua require('neotest').run.run({strategy = 'dap'})<CR>";
-      options.silent = true;
-    }
-    {
-      key = "<leader>dr";
-      action = ":lua require('neotest').run.run({ vim.fn.expand('%') })<CR>";
-      options.silent = true;
-    }
+    (generateKeymap "n" "<leader>dn" ":lua require('neotest').run.run({strategy = 'dap'})<CR>")
+    (generateKeymap "n" "<leader>dr" ":lua require('neotest').run.run({ vim.fn.expand('%') })<CR>")
   ];
 }

@@ -1,3 +1,6 @@
+let
+  generateKeymap = import ./utils/generateKeymap.nix;
+in
 {
   programs.nixvim.plugins.nvim-tree = {
     enable = true;
@@ -9,11 +12,6 @@
     };
   };
   programs.nixvim.keymaps = [
-   {
-      mode = "n";
-      key = "<leader>pv";
-      action = ":NvimTreeToggle<CR>";
-      options.silent = true;
-    }
+    (generateKeymap "n" "<leader>pv" ":NvimTreeToggle<CR>")
   ];
 }
