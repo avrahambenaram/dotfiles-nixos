@@ -90,28 +90,30 @@ in
 
 		# Background
 		"$mod, U, exec, ${bg-selector}/bin/bg-selector" # Apps background
-        "$mod, Y, exec, ${bg-cycle}/bin/bg-cycle" # Bg cycle
+    "$mod, Y, exec, ${bg-cycle}/bin/bg-cycle" # Bg cycle
 
-        # Hycov
-        "ALT, $left, hycov:movefocus, l"
-        "ALT, $right, hycov:movefocus, r"
-        "ALT, $up, hycov:movefocus, u"
-        "ALT, $down, hycov:movefocus, d"
-        "$mod, tab, hycov:toggleoverview"
+    # Hycov
+    "ALT, $left, hycov:movefocus, l"
+    "ALT, $right, hycov:movefocus, r"
+    "ALT, $up, hycov:movefocus, u"
+    "ALT, $down, hycov:movefocus, d"
+    "$mod, tab, hycov:toggleoverview"
 	  ]
 	  ++ (
 		# workspaces
 		# binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
 		builtins.concatLists (builtins.genList (
-			x: let
-			  ws = let
-				c = (x + 1) / 10;
-			  in
-				builtins.toString (x + 1 - (c * 10));
-			in [
-			  "$mod, ${ws}, workspace, ${toString (x + 1)}"
-			  "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-			]
+      x:
+        let
+          ws =
+            let
+              c = (x + 1) / 10;
+            in
+            builtins.toString (x + 1 - (c * 10));
+        in [
+          "$mod, ${ws}, workspace, ${toString (x + 1)}"
+          "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        ]
 		  )
 		  10)
 	  );
