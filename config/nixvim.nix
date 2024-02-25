@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  nvimRemote = "nvim --listen /tmp/nvimsocket";
+in 
 {
   imports = [
     ./nvim/autoclose.nix
@@ -28,9 +31,9 @@
   ];
 
   home.shellAliases = {
-    vi="nvim --listen /tmp/nvimsocket";
-    vim="nvim --listen /tmp/nvimsocket";
-    nvim="nvim --listen /tmp/nvimsocket";
+    vi = nvimRemote;
+    vim = nvimRemote;
+    nvim = nvimRemote;
   };
   home.sessionVariables = {
     EDITOR="nvim";
