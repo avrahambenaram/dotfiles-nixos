@@ -29,6 +29,8 @@
     };
 
     # Neovim plugins
+    corn-nvim.url = "github:RaafatTurki/corn.nvim";
+    corn-nvim.flake = false;
     miasma-nvim.url = "github:xero/miasma.nvim";
     miasma-nvim.flake = false;
     rainglow.url = "github:rainglow/vim";

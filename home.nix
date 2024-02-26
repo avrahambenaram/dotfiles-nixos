@@ -39,6 +39,10 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       vimPlugins = prev.vimPlugins // {
+        corn-nvim = prev.vimUtils.buildVimPlugin {
+          name = "corn";
+          src = inputs.corn-nvim;
+        };
         miasma-nvim = prev.vimUtils.buildVimPlugin {
           name = "miasma";
           src = inputs.miasma-nvim;
