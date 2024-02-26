@@ -121,7 +121,7 @@ local has_words_before = function()
 end
 
 require'lspconfig'.jdtls.setup {
-  cmd = { '${pkgs.jdt-language-server}/bin/jdt-language-server', '-data', '/home/avraham/.cache/jdtls/workspace/' }
+  cmd = { '${pkgs.jdt-language-server}/bin/jdtls', '-data', '/home/avraham/.cache/jdtls/workspace/' }
 }
   '';
 }
