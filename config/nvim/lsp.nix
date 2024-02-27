@@ -108,10 +108,15 @@ in
         { name = "zsh"; }
       ];
     };
+    lspsaga = {
+      enable = true;
+      lightbulb.enable = false;
+    };
   };
   programs.nixvim.keymaps = [
-    (generateKeymap "n" "K" ":lua vim.lsp.buf.hover()<CR>")
-    (generateKeymap ["n" "v"] "ga" ":lua vim.lsp.buf.code_action()<CR>")
+    (generateKeymap "n" "K" ":Lspsaga hover_doc<CR>")
+    (generateKeymap ["n" "v"] "ga" ":Lspsaga code_action<CR>")
+    (generateKeymap ["n" "v"] "gR" ":Lspsaga rename<CR>")
   ];
   programs.nixvim.extraConfigLua = ''
 local has_words_before = function()
