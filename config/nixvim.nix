@@ -35,7 +35,6 @@ in
   home.shellAliases = {
     vi = nvimRemote;
     vim = nvimRemote;
-    nvim = nvimRemote;
   };
   home.sessionVariables = {
     EDITOR="nvim";
