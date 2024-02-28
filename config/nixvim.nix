@@ -9,7 +9,6 @@ in
     ./nvim/clipboard.nix
     ./nvim/colors.nix
     ./nvim/comment.nix
-    ./nvim/copilot.nix
     ./nvim/corn.nix
     ./nvim/dap.nix
     ./nvim/floaterm.nix
