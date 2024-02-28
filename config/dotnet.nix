@@ -19,7 +19,6 @@ in
     DOTNET_ROOT = "${myDotNetEnv}";
   };
 
-  # Editor config
-  home.file.".editorconfig".source = ./dotnet/.editorconfig;
+  # Omnisharp config
   home.file.".omnisharp/omnisharp.json".source = ./dotnet/omnisharp.json;
 }

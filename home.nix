@@ -9,6 +9,7 @@ in
 
     ./config/alacritty.nix
     ./config/dotnet.nix
+    ./config/editorconfig.nix
     ./config/git.nix
     ./config/gtk.nix
     ./config/hypr.nix
