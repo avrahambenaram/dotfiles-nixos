@@ -46,7 +46,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, hyprland, hyprland-plugins, hy3, hycov, ... } @ inputs:
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, hyprland, hyprland-plugins, hy3, hycov, nixvim, ... } @ inputs:
   let
     system = "x86_64-linux";
     overlay-stable = final: prev: {
@@ -59,8 +59,10 @@
 
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
-            ./home.nix
+
             hyprland.homeManagerModules.default
+            nixvim.homeManagerModules.nixvim
+            ./home.nix
 
             {
               wayland.windowManager.hyprland = {

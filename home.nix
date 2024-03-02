@@ -5,8 +5,6 @@ let
 in
 {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-
     ./config/alacritty.nix
     ./config/dotnet.nix
     ./config/editorconfig.nix
@@ -98,7 +96,7 @@ in
     waydroidHeight="waydroid prop set persist.waydroid.height";
   };
   home.sessionVariables = {
-    BROWSER="vivaldi";
+    BROWSER="firefox";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
   };
 

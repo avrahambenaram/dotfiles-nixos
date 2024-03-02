@@ -74,7 +74,7 @@ in
 		"$mod, mouse_up, workspace, e-1"
 
 		# App shortcuts
-		"$mod, O, exec, vivaldi"
+		"$mod, O, exec, firefox"
 		"$mod, N, exec, nautilus"
 		"$mod, Return, exec, alacritty"
 
