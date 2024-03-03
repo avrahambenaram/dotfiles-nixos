@@ -64,7 +64,9 @@ def apply_theme_baskerville():
         "#444",
         "#222",
         "#555",
-        "TTY"
+        "TTY",
+        "#E7C664",
+        "#FC5D7C"
     )
 
 
@@ -78,7 +80,9 @@ def apply_theme_boxuk():
         "#111519",
         "#07080a",
         "#262e37",
-        "matcha-dark-sea"
+        "matcha-dark-sea",
+        "#FFA500",
+        "#E60607"
     )
 
 
@@ -92,7 +96,9 @@ def apply_theme_miasma():
         "#444",
         "#222",
         "#555",
-        "gruvbox_material_dark"
+        "gruvbox_material_dark",
+        "#685742",
+        "#b36d43"
     )
 
 
@@ -106,7 +112,9 @@ def apply_theme_rose_pine():
         "#444",
         "#232136",
         "#555",
-        "TTY"
+        "TTY",
+        "#F6C177",
+        "#EB6F92"
     )
 
 
@@ -120,7 +128,9 @@ def apply_theme_dracula():
         "#444",
         "#282a36",
         "#555",
-        "dracula"
+        "dracula",
+        "#FFB86C",
+        "#FF5555"
     )
 
 
@@ -134,7 +144,9 @@ def apply_theme_nord():
         "#2e3440",
         "#3b4252",
         "#2f3441",
-        "nord"
+        "nord",
+        "#d08770",
+        "#bf616a"
     )
 
 
@@ -147,7 +159,9 @@ def apply_theme(
         wofibase,
         wofibase1,
         wofibase2,
-        btop_theme
+        btop_theme,
+        color_warning,
+        color_critical
         ):
     # Create symbolic links for config files
     create_symlink(
@@ -167,8 +181,10 @@ def apply_theme(
     with open(f"{CONFIGDIR}/waybar/colors.css", "w") as f:
         colors = [
             f"@define-color highlight {color_highlight} ",
-            f"@define-color base1  {color_base1}",
-            f"@define-color border1 {color_border1};"
+            f"@define-color base1 {color_base1}",
+            f"@define-color border1 {color_border1}",
+            f"@define-color warning {color_warning}",
+            f"@define-color critical {color_critical};"
         ]
         f.write(
             ";\n".join(colors)
