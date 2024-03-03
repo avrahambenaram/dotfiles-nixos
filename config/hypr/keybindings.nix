@@ -43,7 +43,7 @@ in
     (generateDirectionKeys (key: direction: "ALT, ${key}, hycov:movefocus, ${direction}"))
     ++
 	  [
-    "$mod, Q, killactive"
+    "$mod, Q, hy3:killactive"
 		"$mod, C, exit"
 		"$mod SHIFT, Space, togglefloating"
 		"$mod, G, centerwindow"
