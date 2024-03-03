@@ -243,6 +243,10 @@ def apply_theme(
             f'nvr -c "colorscheme {nvim_theme}"',
             shell=True
         )
+        subprocess.run(
+            'nvr -c "hi Normal guibg=DARK"',
+            shell=True
+        )
 
 
 def create_symlink(src, dst):
