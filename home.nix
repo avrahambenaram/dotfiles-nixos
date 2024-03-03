@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./config/alacritty.nix
+    ./config/btop.nix
     ./config/dotnet.nix
     ./config/editorconfig.nix
     ./config/git.nix

@@ -44,6 +44,10 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Btop
+    catppuccin-btop.url = "github:catppuccin/btop";
+    catppuccin-btop.flake = false;
   };
 
   outputs = { nixpkgs, nixpkgs-stable, home-manager, hyprland, hyprland-plugins, hy3, hycov, nixvim, ... } @ inputs:
