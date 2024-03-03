@@ -45,6 +45,7 @@ in
 	  [
     "$mod, Q, hy3:killactive"
 		"$mod, C, exit"
+		"$mod, Space, cyclenext"
 		"$mod SHIFT, Space, togglefloating"
 		"$mod, G, centerwindow"
 		"$mod, D, exec, wofi -c ${config.xdg.configHome}/wofi/config -I"
