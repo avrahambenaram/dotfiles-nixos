@@ -48,8 +48,6 @@ def main(theme):
         apply_theme_miasma()
     elif theme == "rose-pine":
         apply_theme_rose_pine()
-    elif theme == "dracula":
-        apply_theme_dracula()
     elif theme == "catppuccin":
         apply_theme_catppuccin()
     elif theme == "nord":
@@ -117,22 +115,6 @@ def apply_theme_rose_pine():
         "TTY",
         "#F6C177",
         "#EB6F92"
-    )
-
-
-def apply_theme_dracula():
-    apply_theme(
-        "dracula",
-        "#bd93f9",
-        "#282a36",
-        "#44475a",
-        "dracula",
-        "#444",
-        "#282a36",
-        "#555",
-        "dracula",
-        "#FFB86C",
-        "#FF5555"
     )
 
 
