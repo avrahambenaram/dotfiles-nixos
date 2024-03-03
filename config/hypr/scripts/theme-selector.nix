@@ -5,7 +5,7 @@ let
 in
 pkgs.writeShellScriptBin "theme-selector" ''
 
-entries="Baskerville Boxuk Dracula Miasma Nord Rose-Pine"
+entries="Baskerville Boxuk Catppuccin Dracula Miasma Nord Rose-Pine"
 
 selected=$(printf '%s\n' $entries | ${pkgs.wofi}/bin/wofi --conf=${config.xdg.configHome}/wofi/config.power --style=${config.xdg.configHome}/wofi/style.widgets.css | awk '{print tolower($1)}')
 
@@ -14,6 +14,8 @@ case $selected in
 	${theme-switcher}/bin/theme-switcher baskerville;;
   boxuk)
   ${theme-switcher}/bin/theme-switcher boxuk;;
+  catppuccin)
+	${theme-switcher}/bin/theme-switcher catppuccin;;
   dracula)
 	${theme-switcher}/bin/theme-switcher dracula;;
   miasma)

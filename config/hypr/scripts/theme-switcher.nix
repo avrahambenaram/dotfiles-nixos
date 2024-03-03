@@ -50,6 +50,8 @@ def main(theme):
         apply_theme_rose_pine()
     elif theme == "dracula":
         apply_theme_dracula()
+    elif theme == "catppuccin":
+        apply_theme_catppuccin()
     elif theme == "nord":
         apply_theme_nord()
 
@@ -131,6 +133,22 @@ def apply_theme_dracula():
         "dracula",
         "#FFB86C",
         "#FF5555"
+    )
+
+
+def apply_theme_catppuccin():
+    apply_theme(
+        "catppuccin",
+        "#ca9ee6",
+        "#303446",
+        "#414559",
+        "catppuccin-frappe",
+        "#51576d",
+        "#303446",
+        "#414559",
+        "catppuccin-frappe",
+        "#e5c890",
+        "#e78284"
     )
 
 
