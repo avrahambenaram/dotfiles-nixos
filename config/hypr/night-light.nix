@@ -6,7 +6,7 @@
   ];
   wayland.windowManager.hyprland.settings = {
     "exec-once" = [
-      "waysct -mode timed -dayTemp 7000"
+      "waysct -mode timed"
     ];
   };
 }
