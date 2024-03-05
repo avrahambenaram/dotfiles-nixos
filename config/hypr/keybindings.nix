@@ -102,7 +102,7 @@ in
             builtins.toString (x + 1 - (c * 10));
         in [
           "$mod, ${ws}, workspace, ${toString (x + 1)}"
-          "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+          "$mod SHIFT, ${ws}, hy3:movetoworkspace, ${toString (x + 1)}, follow"
         ]
 		  )
 		  10)
