@@ -38,10 +38,6 @@ in
     # Move windows with mod + HJKL
     (generateDirectionKeys (key: direction: "$mod SHIFT, ${key}, hy3:movewindow, ${direction}"))
     ++
-
-    # Hycov
-    (generateDirectionKeys (key: direction: "ALT, ${key}, hycov:movefocus, ${direction}"))
-    ++
 	  [
     "$mod, Q, hy3:killactive"
 		"$mod, C, exit"
@@ -92,9 +88,6 @@ in
 		# Background
 		"$mod, U, exec, ${bg-selector}/bin/bg-selector" # Apps background
     "$mod, Y, exec, ${bg-cycle}/bin/bg-cycle" # Bg cycle
-
-    # Hycov
-    "$mod, tab, hycov:toggleoverview"
 	  ]
 	  ++ (
 		# workspaces

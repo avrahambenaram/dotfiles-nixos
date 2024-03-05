@@ -10,21 +10,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.35.0";
     hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
+      url = "github:hyprwm/hyprland-plugins/d7ee47381bdfd345cf46c8918d86ed49b12c9df0";
       inputs.hyprland.follows = "hyprland";
     };
     # or "github:hyprwm/Hyprland?ref=v{version}" for a release version of hyprland
 
     hy3 = {
-      url = "github:outfoxxed/hy3";
+      url = "github:outfoxxed/hy3?ref=hl0.35.0";
       # or "github:outfoxxed/hy3?ref=hl{version}" for a release version of hyprland
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -50,7 +45,7 @@
     catppuccin-btop.flake = false;
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, hyprland, hyprland-plugins, hy3, hycov, nixvim, ... } @ inputs:
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, hyprland, hyprland-plugins, hy3, nixvim, ... } @ inputs:
   let
     system = "x86_64-linux";
     overlay-stable = final: prev: {
@@ -74,7 +69,6 @@
                 xwayland.enable = true;
                 plugins = [
                   hy3.packages.x86_64-linux.hy3
-                  hycov.packages.x86_64-linux.hycov
                   hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprtrails
                   hyprland-plugins.packages.${nixpkgs.legacyPackages.x86_64-linux.system}.hyprwinwrap
                 ];
