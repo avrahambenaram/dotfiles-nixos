@@ -94,7 +94,7 @@ in
       "${modifier}+n" = "exec thunar";
 
       # Screenshots
-      "print" = "exec grimshot --notify save screen";
+      "print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot --notify save screen";
       "Shift+print" = "exec ${wm-screenshot}/bin/wm-screenshot";
 
       # Theme switcher
