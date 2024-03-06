@@ -165,10 +165,6 @@ def apply_theme(
         ):
     # Create symbolic links for config files
     create_symlink(
-        f"{CONFIGDIR}/.themes/hypr/{theme_name}.conf",
-        f"{CONFIGDIR}/hypr/theme.conf"
-    )
-    create_symlink(
         f"{CONFIGDIR}/.themes/sway/{theme_name}",
         f"{CONFIGDIR}/sway/theme"
     )
@@ -177,7 +173,7 @@ def apply_theme(
         f"{CONFIGDIR}/cava/config"
     )
     create_symlink(
-        f"{CONFIGDIR}/.themes/hypr/lock/{theme_name}.sh",
+        f"{CONFIGDIR}/.themes/lock/{theme_name}.sh",
         f"{CONFIGDIR}/lock.sh"
     )
 
@@ -230,10 +226,6 @@ def apply_theme(
         f.write(
             ";\n".join(colors)
         )
-    subprocess.run([
-        'hyprctl',
-        'reload'
-    ])
     subprocess.run([
         'swaymsg',
         'reload'

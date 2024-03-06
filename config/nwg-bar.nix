@@ -15,7 +15,7 @@
         },
         {
           "label": "Logout",
-          "exec": "hyprctl dispatch exit",
+          "exec": "swaymsg exit",
           "icon": "${pkgs.nwg-bar}/share/nwg-bar/images/system-log-out.svg"
         },
         {

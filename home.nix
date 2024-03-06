@@ -11,7 +11,6 @@ in
     ./config/editorconfig.nix
     ./config/git.nix
     ./config/gtk.nix
-    ./config/hypr.nix
     ./config/nixpkgs.nix
     ./config/nixvim.nix
     ./config/nwg-bar.nix

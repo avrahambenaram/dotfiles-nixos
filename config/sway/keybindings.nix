@@ -6,7 +6,6 @@ let
     inherit config;
     inherit pkgs;
   };
-  bg-selector = import ../scripts/bg-selector.nix scriptsParams;
   bg-cycle = import ../scripts/bg-cycle.nix scriptsParams;
   wm-screenshot = import ../scripts/wm-screenshot.nix scriptsParams;
   theme-selector = import ../scripts/theme-selector.nix scriptsParams;
@@ -102,7 +101,6 @@ in
       "${modifier}+t" = "exec ${theme-selector}/bin/theme-selector";
 
       # Background
-      "${modifier}+u" = "exec ${bg-selector}/bin/bg-selector";
       "${modifier}+y" = "exec ${bg-cycle}/bin/bg-cycle";
     };
     modes = {
