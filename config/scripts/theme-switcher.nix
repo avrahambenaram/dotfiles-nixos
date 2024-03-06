@@ -197,8 +197,8 @@ def apply_theme(
 
     # Update Alacritty config
     create_symlink(
-        f"{CONFIGDIR}/.themes/alacritty/{theme_name}.yml",
-        f"{CONFIGDIR}/alacritty/theme.yml"
+        f"{CONFIGDIR}/.themes/alacritty/{theme_name}.toml",
+        f"{CONFIGDIR}/alacritty/theme.toml"
     )
 
     # Update NVIM theme
