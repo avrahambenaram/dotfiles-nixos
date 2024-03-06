@@ -17,6 +17,7 @@ in
     ./config/nwg-bar.nix
     ./config/ranger.nix
     ./config/spotifyd.nix
+    ./config/sway.nix
     ./config/tmux.nix
     ./config/waybar.nix
     ./config/wofi.nix

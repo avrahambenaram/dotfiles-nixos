@@ -10,7 +10,7 @@
       [
         {
           "label": "Lock",
-          "exec": "sh ${config.xdg.configHome}/hypr/lock.sh",
+          "exec": "sh ${config.xdg.configHome}/lock.sh",
           "icon": "${pkgs.nwg-bar}/share/nwg-bar/images/system-lock-screen.svg"
         },
         {

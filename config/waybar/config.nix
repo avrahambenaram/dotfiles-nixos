@@ -8,18 +8,19 @@
 
       # If height property would be not present, it'd be calculated dynamically
       height = 24;
-      margin-left = 15;
-      margin-right = 15;
-      margin-top = 15;
+      margin-left = 8;
+      margin-right = 8;
+      margin-top = 8;
   
       modules-left = [
           "custom/launcher"
-          "hyprland/workspaces"
+          "sway/workspaces"
+          "sway/mode"
       ];
 
       modules-center = [
           "clock"
-          "hyprland/window"
+          "sway/window"
           "tray"
       ];
 
@@ -36,9 +37,8 @@
 
       # Modules
 
-      "hyprland/window" = {
+      "sway/window" = {
           max-length = 200;
-          separate-outputs = true;
       };
 
       "idle_inhibitor" = {
@@ -106,16 +106,19 @@
           tooltip-format = "{ifname}: {ipaddr}/{cidr}";
       };
   
-      "hyprland/workspaces" = {
-        on-scroll-up = "hyprctl dispatch workspace e+1";
-        on-scroll-down = "hyprctl dispatch workspace e-1";
-          format = " {icon} ";
-          format-icons = {
-              "1" = "";
-              "2" = "";
-              "3" = "";
-              "4" = "";
+      "sway/workspaces" = {
+        format = " {icon} ";
+        format-icons = {
+          "1" = "";
+          "2" = "";
+          "3" = "";
+          "4" = "";
         };
+      };
+
+      "sway/mode" = {
+        format = "{}";
+        tooltip = false;
       };
 
       pulseaudio = {

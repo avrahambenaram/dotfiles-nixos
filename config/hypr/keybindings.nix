@@ -6,10 +6,10 @@ let
     inherit config;
     inherit pkgs;
   };
-  bg-selector = import ./scripts/bg-selector.nix scriptsParams;
-  bg-cycle = import ./scripts/bg-cycle.nix scriptsParams;
-  hypr-screenshot = import ./scripts/hypr-screenshot.nix scriptsParams;
-  theme-selector = import ./scripts/theme-selector.nix scriptsParams;
+  bg-selector = import ../scripts/bg-selector.nix scriptsParams;
+  bg-cycle = import ../scripts/bg-cycle.nix scriptsParams;
+  wm-screenshot = import ../scripts/wm-screenshot.nix scriptsParams;
+  theme-selector = import ../scripts/theme-selector.nix scriptsParams;
 in
 {
   home.packages = with pkgs; [
@@ -77,7 +77,7 @@ in
 
 		# Screenshots
 		", PRINT, exec, grimshot --notify save screen"
-		"SHIFT, PRINT, exec, ${hypr-screenshot}/bin/hypr-screenshot"
+		"SHIFT, PRINT, exec, ${wm-screenshot}/bin/wm-screenshot"
 
     # Color picker (requires hyprpicker and wl-clipboard)
 		"$mod, Z, exec, hyprpicker -a"

@@ -169,12 +169,16 @@ def apply_theme(
         f"{CONFIGDIR}/hypr/theme.conf"
     )
     create_symlink(
+        f"{CONFIGDIR}/.themes/sway/{theme_name}",
+        f"{CONFIGDIR}/sway/theme"
+    )
+    create_symlink(
         f"{CONFIGDIR}/.themes/cava/{theme_name}",
         f"{CONFIGDIR}/cava/config"
     )
     create_symlink(
         f"{CONFIGDIR}/.themes/hypr/lock/{theme_name}.sh",
-        f"{CONFIGDIR}/hypr/lock.sh"
+        f"{CONFIGDIR}/lock.sh"
     )
 
     # Update Waybar style
@@ -228,6 +232,10 @@ def apply_theme(
         )
     subprocess.run([
         'hyprctl',
+        'reload'
+    ])
+    subprocess.run([
+        'swaymsg',
         'reload'
     ])
 

@@ -57,24 +57,24 @@
 
 window.HDMI-A-2#waybar {
 	background: @base1;
-    border-radius: 10px;
+  border-radius: 10px;
 	font-size: 10px;
 }
 
 window.eDP-1 .modules-left {
-    background-color: @base1;
-    border-radius: 10px;
+  background-color: @base1;
+  border-radius: 10px;
 	padding: 1.5px 5px;
 	padding-right: 10px;
 }
 window.eDP-1 .modules-center {
-    background-color: @base1;
-    border-radius: 10px;
+  background-color: @base1;
+  border-radius: 10px;
 	padding: 1.5px 45px;
 }
 window.eDP-1 .modules-right {
-    background-color: @base1;
-    border-radius: 10px;
+  background-color: @base1;
+  border-radius: 10px;
 	padding: 1.5px 15px;
 }
 
@@ -95,6 +95,10 @@ window.eDP-1 .modules-right {
 #custom-PBPbattery {
     padding:0.5rem 0.6rem;
     margin: 1px 0px;
+}
+
+#mode {
+  border-radius: 10px;
 }
 
 /* -----------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 { config, pkgs }:
 
-pkgs.writeShellScriptBin "hypr-screenshot" ''
+pkgs.writeShellScriptBin "wm-screenshot" ''
 
 entries="Active Screen Output Area Window"
 
