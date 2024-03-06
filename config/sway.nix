@@ -11,6 +11,22 @@
     ./sway/notification.nix
     ./sway/style.nix
   ];
+
+  home.packages = with pkgs; [
+    # Complementary apps
+    nwg-look
+    nwg-bar
+    nwg-displays
+    wlr-randr
+    swaylock-effects
+
+    # Wallpaper
+    swww
+
+    # Menus
+    wofi
+  ];
+
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.swayfx;
