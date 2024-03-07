@@ -3,7 +3,6 @@
 {
   programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
     catppuccin-nvim
-    dracula-nvim
     iceberg-vim
     miasma-nvim
     nord-nvim
