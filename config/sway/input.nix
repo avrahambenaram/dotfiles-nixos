@@ -1,3 +1,5 @@
+{ config, pkgs, ... }:
+
 {
   wayland.windowManager.sway.config = {
     input = {
@@ -7,9 +9,8 @@
       };
     };
     keybindings = {
-      "Control+Alt+q" = "exec wtype '/'";
-      "Control+Alt+w" = "exec wtype '?'";
-      "Control+Alt+e" = "exec wtype '°'";
+      "Shift_R" = "exec ${pkgs.wtype}/bin/wtype '/'";
+      "Shift+Shift_R" = "exec ${pkgs.wtype}/bin/wtype '?'";
     };
   };
 }
