@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  fader = import ../scripts/fader.nix { inherit pkgs; };
+in 
 {
   wayland.windowManager.sway.config = {
     defaultWorkspace = "workspace number 1";
@@ -14,6 +17,9 @@
       }
       {
         command = "swww init";
+      }
+      {
+        command = "${fader}/bin/fader";
       }
     ];
   };
