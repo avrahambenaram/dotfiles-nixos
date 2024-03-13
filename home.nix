@@ -1,8 +1,5 @@
 { config, pkgs, inputs, ... }:
 
-let
-  postman = pkgs.callPackage ./pkgs/postman { };
-in
 {
   imports = [
     ./config/alacritty.nix
@@ -76,7 +73,6 @@ in
   home.packages = with pkgs; [
     xfce.thunar
 
-    postman
     maven
   ];
 
