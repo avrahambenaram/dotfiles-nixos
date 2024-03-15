@@ -6,7 +6,7 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "swayfader";
-  version = "2024-03-12";
+  version = "unstable-2024-03-12";
   src = fetchFromGitHub {
     owner = "jake-stewart";
     repo = pname;
