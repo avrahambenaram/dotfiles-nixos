@@ -1,5 +1,10 @@
 { config, pkgs, inputs, ... }:
 
+let
+  swayfader = pkgs.callPackage ./pkgs/swayfader {};
+  fzfind = import ./config/scripts/fzfind.nix { inherit pkgs; };
+  fzfindt = import ./config/scripts/fzfindt.nix { inherit pkgs; };
+in 
 {
   imports = [
     ./config/alacritty.nix
@@ -74,6 +79,9 @@
     xfce.thunar
 
     maven
+    swayfader
+    fzfind
+    fzfindt
   ];
 
   home.shellAliases = {
@@ -96,6 +104,10 @@
     BROWSER="firefox";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
   };
+
+  home.sessionPath = [
+    "$HOME/.npm-global/bin"
+  ];
 
   programs.home-manager.enable = true;
 
