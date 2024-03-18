@@ -46,6 +46,7 @@ in
           installRustc = true;
         };
         tailwindcss.enable = true;
+        taplo.enable = true;
         tsserver.enable = true;
         yamlls.enable = true;
       };
