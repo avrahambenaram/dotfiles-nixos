@@ -79,6 +79,7 @@ in
 
   home.packages = with pkgs; [
     xfce.thunar
+    remarshal
 
     maven
     swayfader
