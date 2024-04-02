@@ -83,6 +83,14 @@ in
       type = 'executable',
       command = '${pkgs.netcoredbg}/bin/netcoredbg',
       args = {'--interpreter=vscode'}
+    },
+    ["delve"] = {
+      type = 'server',
+      port = '${"$"}{port}',
+      executable = {
+        command = '${pkgs.delve}/bin/dlv',
+        args = {'dap', '-l', '127.0.0.1:${"$"}{port}'}
+      }
     }
   }
 
@@ -156,6 +164,29 @@ in
           
           return dll_path
         end,
+      }
+    },
+    ["go"] = {
+      {
+        type = "delve",
+        name = "Debug",
+        request = "launch",
+        program = "${"$"}{file}"
+      },
+      {
+        type = "delve",
+        name = "Debug test", -- configuration for debugging test files
+        request = "launch",
+        mode = "test",
+        program = "${"$"}{file}"
+      },
+      -- works with go.mod packages and sub packages 
+      {
+        type = "delve",
+        name = "Debug test (go.mod)",
+        request = "launch",
+        mode = "test",
+        program = "./${"$"}{relativeFileDirname}"
       }
     }
   }
