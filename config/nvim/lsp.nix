@@ -17,6 +17,7 @@ in
       servers = {
         cssls.enable = true;
         eslint.enable = true;
+        gopls.enable = true;
         html.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
