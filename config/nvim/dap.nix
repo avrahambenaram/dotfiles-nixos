@@ -88,7 +88,7 @@ in
       type = 'server',
       port = '${"$"}{port}',
       executable = {
-        command = '${pkgs.delve}/bin/dlv',
+        command = '${pkgs.unstable.delve}/bin/dlv',
         args = {'dap', '-l', '127.0.0.1:${"$"}{port}'}
       }
     }

@@ -17,7 +17,10 @@ in
       servers = {
         cssls.enable = true;
         eslint.enable = true;
-        gopls.enable = true;
+        gopls = {
+          enable = true;
+          package = pkgs.unstable.gopls;
+        };
         html.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
