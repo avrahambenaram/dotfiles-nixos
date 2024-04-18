@@ -3,6 +3,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     home-manager = {
@@ -35,11 +36,14 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, home-manager, nixvim, ... } @ inputs:
+  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-unstable, home-manager, nixvim, ... } @ inputs:
   let
     system = "x86_64-linux";
     overlay-stable = final: prev: {
       stable = nixpkgs-stable.legacyPackages.${prev.system};
+    };
+    overlay-unstable = final: prev: {
+      unstable = nixpkgs-unstable.legacyPackages.${prev.system};
     };
   in
   {
@@ -48,6 +52,7 @@
 
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
 
             nixvim.homeManagerModules.nixvim
             ./home.nix
