@@ -14,6 +14,7 @@ in
     ./config/dotnet.nix
     ./config/editorconfig.nix
     ./config/git.nix
+    ./config/go.nix
     ./config/gtk.nix
     ./config/nixpkgs.nix
     ./config/nixvim.nix
