@@ -109,6 +109,7 @@ in
   home.sessionVariables = {
     BROWSER="firefox";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
+    _JAVA_AWT_WM_NONREPARENTING="1";
   };
 
   home.sessionPath = [
