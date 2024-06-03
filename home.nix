@@ -29,6 +29,7 @@ in
     ./config/zathura.nix
     ./config/zsh.nix
   ];
+  nix.checkConfig = false;
 
   nixpkgs.config.packageOverrides = pkgs: {
     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {

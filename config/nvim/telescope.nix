@@ -6,7 +6,7 @@
   ];
   programs.nixvim.plugins.telescope = {
     enable = true;
-    extraOptions = {
+    settings = {
       defaults = {
         file_ignore_paterns = ["node_modules" "dist"];
       };

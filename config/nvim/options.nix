@@ -5,7 +5,7 @@ in
   programs.nixvim = {
     enableMan = true;
     globals.mapleader = " ";
-    options = {
+    opts = {
       # Init
       number = true;
       relativenumber = true;

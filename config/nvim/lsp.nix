@@ -6,7 +6,6 @@ in
 {
   programs.nixvim.extraPackages = with pkgs; [
     lua-language-server
-    rnix-lsp
   ];
   programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
     formatter-nvim
@@ -19,7 +18,14 @@ in
         eslint.enable = true;
         gopls = {
           enable = true;
-          package = pkgs.unstable.gopls;
+          package = pkgs.gopls;
+          settings = {
+            completeUnimported = true;
+            usePlaceholders = true;
+            analyses = {
+              unusedParams = true;
+            };
+          };
         };
         html.enable = true;
         jsonls.enable = true;
@@ -68,50 +74,52 @@ in
     cmp-path.enable = true;
     cmp-nvim-lsp.enable = true;
     cmp-zsh.enable = true;
-    nvim-cmp = {
+    cmp = {
       enable = true;
-      mapping = {
-        "<CR>" = "cmp.mapping.confirm({ select = false })";
-        "<C-Space>" = "cmp.mapping.complete()";
-        "<Tab>" = ''
-        cmp.mapping(function(fallback)
-          local luasnip = require('luasnip')
-          if cmp.visible() then
-            cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-          -- that way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end, { "i", "s" })
-        '';
-        "<S-Tab>" = ''
-        cmp.mapping(function(fallback)
-          local luasnip = require('luasnip')
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" })
-        '';
-      };
       autoEnableSources = true;
-      sources = [
-        { name = "cmp_tabnine"; }
-        { name = "nvim_lsp"; }
-        { name = "luasnip"; }
-        { name = "path"; }
-        { name = "buffer"; }
-        { name = "omni"; }
-        { name = "zsh"; }
-      ];
+      settings = {
+        mapping = {
+          "<CR>" = "cmp.mapping.confirm({ select = false })";
+          "<C-Space>" = "cmp.mapping.complete()";
+          "<Tab>" = ''
+          cmp.mapping(function(fallback)
+            local luasnip = require('luasnip')
+            if cmp.visible() then
+              cmp.select_next_item()
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
+            -- that way you will only jump inside the snippet region
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { "i", "s" })
+          '';
+          "<S-Tab>" = ''
+          cmp.mapping(function(fallback)
+            local luasnip = require('luasnip')
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" })
+          '';
+        };
+        sources = [
+          { name = "cmp_tabnine"; }
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "path"; }
+          { name = "buffer"; }
+          { name = "omni"; }
+          { name = "zsh"; }
+        ];
+      };
     };
     lspsaga = {
       enable = true;

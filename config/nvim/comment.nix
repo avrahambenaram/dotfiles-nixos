@@ -1,7 +1,7 @@
 {
-  programs.nixvim.plugins.comment-nvim = {
+  programs.nixvim.plugins.comment = {
     enable = true;
-    toggler = {
+    settings.toggler = {
       block = "gc";
       line = "gcc";
     };

@@ -29,7 +29,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.swayfx;
+    package = pkgs.old.swayfx;
 
     extraConfig = ''
 bar {

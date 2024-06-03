@@ -5,7 +5,7 @@ let
 in
 {
   programs.nixvim.plugins = {
-    nvim-cmp.snippet.expand = "luasnip";
+    cmp.settings.snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
     cmp_luasnip.enable = true;
     friendly-snippets.enable = true;
     luasnip = {
