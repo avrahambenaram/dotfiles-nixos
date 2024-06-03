@@ -7,6 +7,7 @@ in
   imports = [
     ./nvim/autoclose.nix
     ./nvim/clipboard.nix
+    ./nvim/cmd.nix
     ./nvim/colors.nix
     ./nvim/comment.nix
     ./nvim/corn.nix
