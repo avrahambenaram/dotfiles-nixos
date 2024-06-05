@@ -20,7 +20,7 @@ in
       "${modifier}+q" = "kill";
       "${modifier}+d" = "exec wofi -c ${config.xdg.configHome}/wofi/config -I";
       "${modifier}+c" = "exit";
-      "${modifier}+z" = "exec hyprpicker -a";
+      "${modifier}+z" = "exec wl-color-picker clipboard";
 
       # Moving around
       "${modifier}+h" = "focus left";

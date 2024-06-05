@@ -4,7 +4,6 @@ let
   swayfader = pkgs.callPackage ./pkgs/swayfader {};
   fzfind = import ./config/scripts/fzfind.nix { inherit pkgs; };
   fzfindt = import ./config/scripts/fzfindt.nix { inherit pkgs; };
-  hyprpicker = inputs.hyprpicker.packages.x86_64-linux.default;
 in 
 {
   imports = [
@@ -88,7 +87,8 @@ in
     swayfader
     fzfind
     fzfindt
-    hyprpicker
+    wl-color-picker
+    firefox
   ];
 
   home.shellAliases = {

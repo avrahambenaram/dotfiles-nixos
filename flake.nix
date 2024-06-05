@@ -30,9 +30,6 @@
     # Btop
     catppuccin-btop.url = "github:catppuccin/btop";
     catppuccin-btop.flake = false;
-
-    # Wayland
-    hyprpicker.url = "github:hyprwm/hyprpicker";
   };
 
   outputs = { nixpkgs, nixpkgs-old, home-manager, nixvim, ... } @ inputs:
