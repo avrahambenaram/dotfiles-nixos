@@ -28,6 +28,7 @@ in
           };
         };
         html.enable = true;
+        htmx.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
         nixd.enable = true;
