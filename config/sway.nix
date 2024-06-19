@@ -3,6 +3,7 @@
 {
   imports = [
     ./sway/clipboard.nix
+    ./sway/idle.nix
     ./sway/input.nix
     ./sway/keybindings.nix
     ./sway/misc.nix
