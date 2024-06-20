@@ -197,6 +197,12 @@ def apply_theme(
         f"{CONFIGDIR}/alacritty/theme.toml"
     )
 
+    # Update swaync config
+    create_symlink(
+      f"{CONFIGDIR}/.themes/swaync/{theme_name}.css",
+      f"{CONFIGDIR}/swaync/colors.css"
+    )
+
     # Update NVIM theme
     with open(f"{HOME}/.nvimtheme", "w") as f:
         f.write(nvim_theme)

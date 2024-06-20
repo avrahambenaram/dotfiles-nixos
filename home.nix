@@ -21,6 +21,7 @@ in
     ./config/ranger.nix
     ./config/spotifyd.nix
     ./config/sway.nix
+    ./config/swaync.nix
     ./config/syncthing.nix
     ./config/tmux.nix
     ./config/waybar.nix
