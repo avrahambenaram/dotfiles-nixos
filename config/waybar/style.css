@@ -227,3 +227,7 @@ window.eDP-1 .modules-right {
     padding-right:1px;
     font-size: 13px;
 }
+
+#custom-notification {
+  font-size: 14px;
+}
