@@ -11,6 +11,7 @@
     ./sway/night-light.nix
     ./sway/notification.nix
     ./sway/style.nix
+    ./sway/waydroid.nix
   ];
 
   home.packages = with pkgs; [
