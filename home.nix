@@ -19,7 +19,6 @@ in
     ./config/nixvim.nix
     ./config/nwg-bar.nix
     ./config/ranger.nix
-    ./config/spotifyd.nix
     ./config/sway.nix
     ./config/swaync.nix
     ./config/syncthing.nix
