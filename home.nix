@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   swayfader = pkgs.callPackage ./pkgs/swayfader {};
@@ -79,16 +79,16 @@ in
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  home.packages = with pkgs; [
-    xfce.thunar
-    remarshal
+  home.packages = [
+    pkgs.xfce.thunar
+    pkgs.remarshal
 
-    maven
+    pkgs.maven
     swayfader
     fzfind
     fzfindt
-    wl-color-picker
-    firefox
+    pkgs.wl-color-picker
+    pkgs.firefox
   ];
 
   home.shellAliases = {
