@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   generateKeymap = import ./utils/generateKeymap.nix;
@@ -8,6 +8,7 @@ in
     neotest
     neotest-jest
     neotest-dotnet
+    neotest-go
   ];
   programs.nixvim.extraConfigLua = ''
 require("neotest").setup({
@@ -21,6 +22,13 @@ require("neotest").setup({
         return vim.fn.getcwd()
       end,
     }),
+    require("neotest-go")({
+      experimental = {
+        test_table = true,
+      },
+      args = { "-count=1", "-timeout=60s" },
+      recursive_run = true
+    })
   }
 })
   '';
