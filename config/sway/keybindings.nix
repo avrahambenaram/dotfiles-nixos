@@ -90,7 +90,7 @@ in
       "${modifier}+m" = "mode \"move\"";
 
       # App shortcuts
-      "${modifier}+o" = "exec firefox";
+      "${modifier}+o" = "exec librewolf";
       "${modifier}+n" = "exec thunar";
 
       # Screenshots

@@ -1,8 +1,10 @@
 {
   programs.nixvim.plugins.navic = {
     enable = true;
-    click = true;
-    lsp.autoAttach = true;
-    highlight = true;
+    settings = {
+      click = true;
+      highlight = true;
+      lsp.autoAttach = true;
+    };
   };
 }

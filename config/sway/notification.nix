@@ -11,5 +11,8 @@ in
     keybindings = {
       "${modifier}+p" = "exec swaync-client --reload-css && swaync-client -t -sw";
     };
+    startup = [{
+      command = "swaync";
+    }];
   };
 }

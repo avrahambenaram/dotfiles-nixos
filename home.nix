@@ -8,13 +8,13 @@ in
 {
   imports = [
     ./config/alacritty.nix
-    ./config/android.nix
     ./config/btop.nix
     ./config/dotnet.nix
     ./config/editorconfig.nix
     ./config/git.nix
     ./config/go.nix
     ./config/gtk.nix
+    ./config/node.nix
     ./config/nixpkgs.nix
     ./config/nixvim.nix
     ./config/nwg-bar.nix
@@ -88,7 +88,14 @@ in
     fzfind
     fzfindt
     pkgs.wl-color-picker
-    pkgs.firefox
+    pkgs.librewolf
+
+    # Others
+    pkgs.appimage-run
+    pkgs.bottles
+    pkgs.gparted
+    pkgs.obsidian
+    pkgs.ntfs3g
   ];
 
   home.shellAliases = {
@@ -108,7 +115,7 @@ in
     waydroidHeight="waydroid prop set persist.waydroid.height";
   };
   home.sessionVariables = {
-    BROWSER="firefox";
+    BROWSER="librewolf";
     PF_INFO="ascii title os kernel de wm editor shell uptime pkgs memory palette";
     _JAVA_AWT_WM_NONREPARENTING="1";
   };

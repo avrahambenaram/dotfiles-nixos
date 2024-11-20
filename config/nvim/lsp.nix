@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   generateKeymap = import ./utils/generateKeymap.nix;
@@ -30,7 +30,7 @@ in
         html.enable = true;
         htmx.enable = true;
         jsonls.enable = true;
-        lua-ls.enable = true;
+        lua_ls.enable = true;
         nixd.enable = true;
         omnisharp = {
           enable = true;
@@ -48,17 +48,16 @@ in
           })
           '';
         };
-        prismals.enable = true;
         pylsp.enable = true;
         pyright.enable = true;
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installCargo = true;
           installRustc = true;
         };
         tailwindcss.enable = true;
         taplo.enable = true;
-        tsserver.enable = true;
+        ts_ls.enable = true;
         yamlls.enable = true;
       };
     };

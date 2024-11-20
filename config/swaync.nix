@@ -1,9 +1,4 @@
-{ pkgs, ... }:
-
 {
-  services.swaync = {
-    enable = true;
-    settings = import ./swaync/config.nix { inherit pkgs; };
-    style = ./swaync/style.css;
-  };
+  xdg.configFile."swaync/style.css".source = ./swaync/style.css;
+  xdg.configFile."swaync/config.json".source = ./swaync/config.json;
 }

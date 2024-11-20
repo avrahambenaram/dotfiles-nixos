@@ -162,9 +162,9 @@
            on-scroll-up = "brightnessctl -c backlight set +1%";
       };
 
-      "custom/firefox" = {
+      "custom/browser" = {
           format = " ";
-          on-click = "exec firefox";
+          on-click = "exec librewolf";
           tooltip = false;
       };
 

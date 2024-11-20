@@ -48,10 +48,8 @@ in
     extraPlugins = with pkgs.vimPlugins; [
       # Window additions
       vim-visual-multi
-
-      # Others
-      nvim-web-devicons # Optional
     ];
     plugins.nix.enable = true;
+    plugins.web-devicons.enable = true;
   };
 }
