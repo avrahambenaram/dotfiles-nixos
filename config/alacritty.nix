@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       window.opacity = 0.9;
-      import = [
+      general.import = [
         "${config.xdg.configHome}/alacritty/theme.toml"
       ];
     };
