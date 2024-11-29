@@ -8,6 +8,7 @@ in
     ./nvim/autoclose.nix
     ./nvim/clipboard.nix
     ./nvim/cmd.nix
+    ./nvim/cmp.nix
     ./nvim/colors.nix
     ./nvim/comment.nix
     ./nvim/corn.nix
@@ -23,7 +24,6 @@ in
     ./nvim/neotest.nix
     ./nvim/options.nix
     ./nvim/presence.nix # Optional
-    ./nvim/snippets.nix
     ./nvim/tabnine.nix
     ./nvim/telescope.nix
     ./nvim/tree.nix # Optional
